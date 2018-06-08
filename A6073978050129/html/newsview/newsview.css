@@ -1,0 +1,28 @@
+/* pages/newsview/newsview.wxss */
+.container{
+  padding: 10px;
+
+}
+.newstit{
+  width: 100%;
+  font-size: 17px;
+  color: #333;
+  line-height: 23px;
+  padding: 0 0 6px 0;
+}
+.newstime{
+  width: 100%;
+  font-size: 12px;
+  color: #999;
+  line-height: 20px;
+  padding: 0 0 10px 0;
+}
+.newsview{
+  width: 100%;
+  padding: 0 0 20px 0;
+  font-size: 14px;
+  color: #666;
+}
+.newsview img{
+  max-width: 100%;
+}
