@@ -8,7 +8,7 @@
     </author>
     <content src="index.html" />
     <access origin="*" />
-    <preference name="pageBounce" value="false"/>  <preference name="iOS7StatusBarAppearance" value="false" />
+    <preference name="pageBounce" value="false"/>  <preference name="iOS7StatusBarAppearance" value="true" />
 	<preference name="appBackground" value="rgb(255,255,255)"/>  <preference name="windowBackground" value="rgba(235,236,237,1)"/>  <preference name="frameBackgroundColor" value="rgb(255,255,255)"/>
 	<preference name="hScrollBarEnabled" value="false"/>
 	<preference name="vScrollBarEnabled" value="false"/>
