@@ -51,6 +51,7 @@ function bindViewintention() {
 }
 
 apiready = function() {
+  glo.init();
   //====================================
   //首次登录APP后，设置无需再显示登录欢迎页
   //====================================
@@ -114,7 +115,7 @@ apiready = function() {
     UIScrollPicture.open({
         rect: {
             x: 0,
-            y: 40,
+            y: 60,
             w: api.winWidth,
             h: api.winWidth * 0.433
         },

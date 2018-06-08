@@ -3,22 +3,19 @@ var website = "http://192.168.18.118:4015";
 
 var glo = {
   init: function(data) {
-    header_h = parseInt($api.getStorage('header_h'));
-		footer_h = parseInt($api.getStorage('footer_h'));
-		main_h = parseInt($api.getStorage('main_h'));
+    this.fix_header('#header');
     token = $api.getStorage('token');
-    if(!data)
-      data = {}
+
   },
   fix_header: function(name) {
     var header = $api.dom(name);
-    $api.fixIos7Bar(header);
+    $api.fixStatusBar(header);
     api.setStatusBarStyle({
         style: 'dark',
-        color: '#6ab494'
+        color: '#999999'
     });
   },
-  open_frame: function(url, pageParams = {}){
+  open_frame: function(url, pageParams){
       var arr = url.split('/');
       var name = arr[arr.length - 1].split('.')[0];
       if(!arr[arr.length - 2]) {
@@ -42,7 +39,7 @@ var glo = {
         pageParam: pageParams
     });
   },
-  open_win: function(url, pageParams = {}){
+  open_win: function(url, pageParams){
     var arr = url.split('/');
     var name = arr[arr.length - 1].split('.')[0];
     if(!arr[arr.length - 2]) {

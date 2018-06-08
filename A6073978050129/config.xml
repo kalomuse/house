@@ -17,8 +17,8 @@
 	<preference name="autoUpdate" value="true" />
 	<preference name="smartUpdate" value="false" />
 	<preference name="debug" value="true"/>
-	<preference name="statusBarAppearance" value="false"/>
-	<permission name="readPhoneState" />
+	<preference name="statusBarAppearance" value="true"/>
+	<permission name="readPhoneState" />s
 	<permission name="camera" />
 	<permission name="record" />
 	<permission name="location" />
