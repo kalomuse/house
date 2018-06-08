@@ -82,17 +82,17 @@ apiready = function() {
   $api.setStorage('regionid', vue.regionid);
 
   //获取地理信息
-  glo.post(website + '/api/region/setRegion', { regionid: vue.regionid }, function (res) {
+  glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
       vue.region =  res.data.area;
   });
 
  //获取推荐楼盘
-  glo.post(website + '/api/index/getRemhouses', { regionid: vue.regionid }, function (res) {
+  glo.post('/api/index/getRemhouses', { regionid: vue.regionid }, function (res) {
       vue.houselist =  res.data;
   });
 
   //获取购房意向
-  glo.post(website + '/api/purpose/getPurpose',
+  glo.post('/api/purpose/getPurpose',
   {
     uid: $api.getStorage('userid'),
     areaid: $api.getStorage('regionid')
@@ -105,7 +105,7 @@ apiready = function() {
   });
   //获取banner图
   var data = {regionid: $api.getStorage('regionid')};
-  glo.post(website + '/api/index/getBanner', data, function(res) {
+  glo.post('/api/index/getBanner', data, function(res) {
     $('.banner').css('height', api.winWidth * 0.433);
     var img = [];
     for(var index in res.data) {

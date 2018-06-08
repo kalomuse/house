@@ -16,7 +16,7 @@ apiready = function() {
   glo.init();
 
   //post事例
-  glo.post(website + '/api/region/setRegion', { regionid: vue.regionid }, function (res) {
+  glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
       vue.region =  res.data.area;
   });
 };

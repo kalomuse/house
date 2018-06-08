@@ -1,0 +1,38 @@
+/**index.wxss**/
+.container {
+  padding-bottom: 60px;
+} 
+.newslist{
+  display: block;
+  width: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+.newslist .newsitem{
+  width: 100%;
+  border-top: 1px solid #ddd;
+  padding: 8px 0;
+}
+.newslist .newsitem:first-child{
+  border: 0 none;
+}
+.newslist .news-img{
+  float: left;
+  width: 80px;
+  height: 56px;
+  padding-right: 10px;
+}
+.newslist .newsitem .info .tit{
+  font-size: 14px;
+  color: #333;
+  line-height: 18px;
+  height: 36px;
+  margin-bottom: 4px;
+  overflow: hidden
+}
+.newslist .newsitem .info .time{
+  font-size: 12px;
+  height: 16px;
+  color: #999;
+  line-height: 16px;
+}
