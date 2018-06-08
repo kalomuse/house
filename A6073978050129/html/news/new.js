@@ -49,10 +49,10 @@ apiready = function() {
     // 页数+1
     var page = vue.page+1;
     glo.post('/api/news/getNews', {page: page}, function (res) {
-      if(res.data.Code){
+      if(res.Code){
         var news_list = vue.newlist;
-        for (var i = 0; i < res.data.data.length; i++) {
-          news_list.push(res.data.data[i]);
+        for (var i = 0; i < res.data.length; i++) {
+          news_list.push(res.data[i]);
         }
         vue.newlist = news_list;
         vue.page = page+1

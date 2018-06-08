@@ -165,7 +165,7 @@ var glo = {
   scrolltobottom: function(callback){
     var callback2 = function() {
       api.toast({
-          msg : '加载更多...',
+          msg : '玩命加载中',
           duration : 2000,
           location : 'bottom'
       });

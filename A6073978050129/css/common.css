@@ -1,4 +1,7 @@
 /**app.wxss**/
+.mt-65 {
+  margin-top:65px;
+}
 @font-face {font-family: "iconfont";
   src: url('iconfont.eot?t=1527843795574'); /* IE9*/
   src: url('iconfont.eot?t=1527843795574#iefix') format('embedded-opentype'), /* IE6-IE8 */
@@ -159,14 +162,14 @@
 .h-left{float:left;width:10%; height:45px;}
 .h-right{float:left; width:10%;height:45px;}
 .go-back{
+  background: url(../images/arrow_left.png) no-repeat 15px center;
+  background-size: auto 20px;
 	position: absolute;
 	left: 0;
-	bottom: 0;
+	bottom: 3px;
 	display: block;
 	width: 45px;
 	height: 45px;
-	text-align: center;
-	line-height: 45px;
 }
 .web-tit{
 	height: 45px;
