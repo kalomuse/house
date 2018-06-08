@@ -18,7 +18,7 @@
       <!--index.wxml-->
       <div class="newslist" v-if="newlist">
 
-        <div class="newsitem" onclick="binddivnewsdiv({{v.id}})" v-for="v in newlist">
+        <div class="newsitem" v-on:click="bindViewnewsview(v.id)" v-for="v in newlist">
           <img :src="website + v.img" class="news-img" />
           <div class="info">
             <div class="tit">{{v.title}}</div>

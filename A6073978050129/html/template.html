@@ -8,37 +8,35 @@
   <link rel="stylesheet" type="text/css" href="index.css" />
 </head>
 <body>
-
-
   <div class="container mt-65">
     <header class="header" id="header">  <!-- 2 -->
       <a class="go-back" onclick="api.closeFrame()"><i class="iconfont icon-fanhui"></i></a>
       <h2 class="web-tit">这里是标题</h2>
     </header>
-
- <!--底部导航  start-->
- <div class="nav-wrap">
-   <div onclick="bindViewpro()" class="nav-item active">
-     <div class="iconfont icon-loupan"></div>
-     <div>楼盘</div>
+  </div>
+   <!--底部导航  start-->
+   <div class="nav-wrap">
+     <div onclick="bindViewpro()" class="nav-item active">
+       <div class="iconfont icon-loupan"></div>
+       <div>楼盘</div>
+     </div>
+     <div onclick="bindViewsale()" class="nav-item">
+       <div class="iconfont icon-xiaoshou"></div>
+       <div>经纪人</div>
+     </div>
+     <div onclick="bindViewnews()" class="nav-item">
+       <div class="iconfont icon-zixun"></div>
+       <div>资讯</div>
+     </div>
+     <div onclick="bindViewprice()" class="nav-item">
+       <div class="iconfont icon-fangjiameiyuanfangzimianxing"></div>
+       <div>查房价</div>
+     </div>
    </div>
-   <div onclick="bindViewsale()" class="nav-item">
-     <div class="iconfont icon-xiaoshou"></div>
-     <div>经纪人</div>
-   </div>
-   <div onclick="bindViewnews()" class="nav-item">
-     <div class="iconfont icon-zixun"></div>
-     <div>资讯</div>
-   </div>
-   <div onclick="bindViewprice()" class="nav-item">
-     <div class="iconfont icon-fangjiameiyuanfangzimianxing"></div>
-     <div>查房价</div>
-   </div>
- </div>
  <script type="text/javascript" src="../../script/api.js"></script>
  <script type="text/javascript" src="../../script/jquery.min.js"></script>
  <script src="../../script/vue.js"></script>
  <script type="text/javascript" src="../../script/global.js"></script>
- <script type="text/javascript" src="index/index.js"></script>
+ <script type="text/javascript" src="index.js"></script>
  </body>
  </html>

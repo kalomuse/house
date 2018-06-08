@@ -7,6 +7,12 @@ var vue = new Vue({
     hasUserInfo: false,
     newlist:{},
     page:1
+  },
+  methods:{
+    //资讯详情事件处理函数
+    bindViewnewsview: function(id){
+      glo.open_win('../newsview/newsview', {id: id});
+    }
   }
 })
 
@@ -28,11 +34,6 @@ function bindViewsale() {
 //房价事件处理函数
 function bindViewprice() {
   glo.open_win('../real_search/real_search');
-}
-
-//资讯详情事件处理函数
-function bindViewnewsview(id) {
-  glo.open_win('../newsview/newsview', {id: id});
 }
 
 apiready = function() {
