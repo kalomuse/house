@@ -13,7 +13,7 @@ var vue = new Vue({
 //点击事例，navigateTo对应open_win，redirectTo对应open_frame
 //楼盘事件处理函数
 function bindViewpro() {
-  glo.open_frame('../index/index.html');
+  glo.open_frame('../main');
 }
 //经济人事件处理函数
 function bindViewsale() {
@@ -38,7 +38,10 @@ function bindViewnewsview(id) {
 apiready = function() {
   //初始化必须调用
   glo.init();
-
+  //初始化数据
+  glo.post('/api/news/getNews', {}, function (res) {
+      vue.newlist =  res.data;
+  });
   /**
     * 页面上拉触底事件的处理函数
     */
@@ -56,9 +59,4 @@ apiready = function() {
       }
     });
   })
-
-  //post事例
-  glo.post('/api/news/getNews', {}, function (res) {
-      vue.newlist =  res.area;
-  });
 };

@@ -51,6 +51,7 @@ function bindViewintention() {
 }
 
 apiready = function() {
+
   glo.init();
   //====================================
   //首次登录APP后，设置无需再显示登录欢迎页
