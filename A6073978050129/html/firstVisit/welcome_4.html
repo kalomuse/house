@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <title>欢迎页_4</title>
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <style type="text/css">
+    	#main{
+    		overflow: hidden;
+    	}
+    	.welcome_img{
+    		display: block;
+    		width: 100%;
+    	}
+    </style>
+</head>
+<body>
+	<div id="main">
+		<img src="../../images/load/load_4.jpg" class="welcome_img" alt="欢迎页第4张">
+	</div>
+
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript">
+	apiready = function(){
+		funList = {
+			init: function(){
+				var w = api.winWidth;
+				var h = api.winHeight;
+
+				funList.setImage(w,h);
+			},
+			setImage: function(w,h){
+				$('#main').css({"width":w, "height":h});
+				$('.welcome_img').css({"width":w, "height":h});
+			}
+		}
+
+		$api.addEvt($api.dom('.welcome_img'), 'click', function(){
+            api.openWin({
+		        name: 'main',
+		        url: '../main.html',
+		        bounces: false,
+		        delay:200,
+		        reload: true
+		    });
+		});
+
+		funList.init();
+    }
+</script>
+</body>
+</html>

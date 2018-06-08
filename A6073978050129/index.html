@@ -1,0 +1,96 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+    <link rel="stylesheet" type="text/css" href="../css/api.css" />
+    <title>禧钱居</title>
+</head>
+<body>
+    <div id="main"></div>
+</body>
+<script type="text/javascript" src="./script/api.js"></script>
+<script type="text/javascript">
+    apiready = function(){
+    	setTimeout(function() {
+    		api.removeLaunchView({
+            	animation : {
+                	type : 'fade',
+                    duration : 500
+                }
+            });
+        }, 5000);
+
+        //自动更新相关
+        /*
+        var connectionType = api.connectionType;
+        if(connectionType == 'wifi'){
+            var mam = api.require('mam');
+            mam.checkUpdate(function(ret, err){
+                if(ret){
+                    if (result){
+                        var result = ret.result;
+                        if(result.update){
+                            var ok = 1;//由apicloud自动处理下载
+                        }
+                    }
+                }
+            });
+        }*/
+
+        //业务相关
+        //引导页
+        var cur_appversion = $api.getStorage('cur_appversion');
+        var appversion = api.appVersion;
+        if(cur_appversion != '' &&  cur_appversion >= appversion){
+            api.openWin({
+                name: 'main',
+                url: './html/index/index.html',
+                bounces: false,
+                delay:200,
+                reload: true
+            });
+        }else{
+        	//显示引导页
+            api.openFrameGroup ({
+                name: 'welcome',
+                background:'#f0f0f0',
+                scrollEnabled:true,
+                rect:{x:0, y:0, w:'auto', h:'auto'},
+                index:0,
+                frames:
+                [{
+                    name: 'welcome_1',
+                    url: './html/firstVisit/welcome_1.html',
+                    bounces:false,
+                    bgColor: '#000',
+                    vScrollBarEnabled:false,
+                    hScrollBarEnabled:false
+                },{
+                    name: 'welcome_2',
+                    url: './html/firstVisit/welcome_2.html',
+                    bounces:false,
+                    bgColor: '#fff',
+                    vScrollBarEnabled:false,
+                    hScrollBarEnabled:false
+                },{
+                    name: 'welcome_4',
+                    url: './html/firstVisit/welcome_4.html',
+                    bounces:false,
+                    bgColor: '#fff',
+                    vScrollBarEnabled:false,
+                    hScrollBarEnabled:false
+                },{
+                    name: 'main',
+                    url: './html/main.html',
+                    bounces:false,
+                }
+                ]
+            });
+        }
+      }
+</script>
+</html>
