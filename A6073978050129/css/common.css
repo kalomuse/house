@@ -154,3 +154,24 @@
   border-top: 1px #d9d9d9 solid;
   padding: 20rpx;
 }
+
+.header { width:100%; padding-top:10px;height:45px; background:#F6F6F6;top:0; z-index:9999; border:0; border-bottom:1px solid #CCC; position: fixed; left: 0; top: 0;}
+.h-left{float:left;width:10%; height:45px;}
+.h-right{float:left; width:10%;height:45px;}
+.go-back{
+	position: absolute;
+	left: 0;
+	bottom: 0;
+	display: block;
+	width: 45px;
+	height: 45px;
+	text-align: center;
+	line-height: 45px;
+}
+.web-tit{
+	height: 45px;
+	text-align: center;
+	font-size: 16px;
+	color: #555;
+	line-height: 45px;
+}

@@ -27,6 +27,9 @@ var glo = {
       } else {
         name = arr[arr.length - 2] + '_' + name;
       }
+      if(arr[arr.length - 1].search(".html") == -1) {
+        url += '.html';
+      }
       api.openFrame({
         name: name,
         url: url,
@@ -50,6 +53,9 @@ var glo = {
       name = href[href.length - 2] + '_' + name;
     } else {
       name = arr[arr.length - 2] + '_' + name;
+    }
+    if(arr[arr.length - 1].search(".html") == -1) {
+      url += '.html';
     }
     api.openWin({
       name: name,
