@@ -15,38 +15,38 @@ var vue = new Vue({
 
 //搜索事件处理函数
 function bindViewsearch() {
-  glo.open_win('../search/search.html');
+  glo.open_win('search/search.html');
 }
 //定位事件处理函数
 function bindViewhouse_location() {
-  glo.open_win('../house_location/house_location.html');
+  glo.open_win('house_location/house_location.html');
 }
 //经济人事件处理函数
 function bindViewsale() {
-  glo.open_win('../salelist/salelist.html');
+  glo.open_win('salelist/salelist.html');
 }
 //资讯事件处理函数
 function bindViewnews() {
-  glo.open_frame('../news/news.html');
+  glo.open_frame('news/news.html');
 }
 //房价事件处理函数
 function bindViewprice() {
-  glo.open_win('../real_search/real_search.html');
+  glo.open_win('real_search/real_search.html');
 }
 //楼盘详情事件处理函数
 function bindViewproview(id) {
-  glo.open_win('../proview/proview.html', {id: id});
+  glo.open_win('proview/proview.html', {id: id});
 }
 
 function bindViewhouse() {
-  glo.open_win('../prolist/prolist.html');
+  glo.open_win('prolist/prolist.html');
 }
 
 function bindViewintention() {
   if(vue.purposeid){
-    glo.open_win('../intention_result/intention_result');
+    glo.open_win('intention_result/intention_result');
   }else{
-    glo.open_win('../intention/intention.html');
+    glo.open_win('intention/intention.html');
   }
 }
 
