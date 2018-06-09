@@ -1,1 +1,49 @@
-real_search
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="real_search.css" />
+</head>
+<body>
+  <div class="container mt-65">
+    <header class="header" id="header">  <!-- 2 -->
+      <a class="go-back" onclick="api.closeWin()"></a>
+      <h2 class="web-tit">查房价</h2>
+    </header>
+    <div class="logo"><img src="../../images/logo.jpg" style="width:100%"></div>
+    <div class="tit">禧乾居楼盘快速查询</div>
+    <div class="count-btn" onclick="intention()">计算房贷</div>
+    <!--搜索框  start-->
+    <form class="search-wrap">
+      <div class="txt-wrap">
+        <icon class="iconfont icon-fangdajing"></icon>
+        <input placeholder="搜索楼盘小区" name="keyword" id="keyword"></input>
+      </div>
+      <button class="search-btn" onclick="SearchHouse()">搜索</button>
+    </form>
+    <!--搜索框  end-->
+    <div class="search-history">
+      <div class="fl">历史搜索</div>
+      <div class="fr" onclick="bindClear_history()">清空</div>
+    </div>
+    <div class="search-history-list">
+      <div v-on:click="bindViewsearch_result(v.keyword)" class="search-history-item"  v-for="v in searchlist">{{v.keyword}}</div>
+    </div>
+
+    <div class="search-history">
+      <div class="fl">热门搜索</div>
+    </div>
+    <div class="search-history-list">
+      <div class="search-history-item"  v-on:click="bindViewsearch_result(v.keyword)" v-for="v in hotwordlist">{{v.keywords}}</div>
+    </div>
+  </div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="real_search.js"></script>
+ </body>
+ </html>
