@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black">
+    <meta name="format-detection" content="telephone=no">
+
+    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+    <link rel="stylesheet" type="text/css" href="login.css" />
+    <title>动态码登录</title>
+</head>
+<body>
+  <header class="header" id="header">  <!-- 2 -->
+    <a class="go-back" onclick="api.closeWin()"></a>
+    <h2 class="web-tit">动态码登录</h2>
+  </header>
+
+<div class="zmz">
+    <div id="main" class="main f14">
+ 		<div class="zmz-logo">
+            <img src="../../images/logo.jpg" class="logo" alt="">
+        </div>
+
+	    <form action="">
+	    	<div class="cons">
+		        <div class="form-part top_lr_radio">
+		        	<i class="iconfont icon-phone"></i>
+		            <input maxlength="11" id="phone" name="phone" class="input-txt" placeholder="请输入您的手机号码" type="tel"/>
+		        </div>
+		        <div class="form-part border-none bottom_lr_radio">
+		            <i class="iconfont icon-number"></i>
+		            <input maxlength="4" class="input-txt code" id="dyn_pwd" name="dyn_pwd" placeholder="请输入验证码" type="text"/>
+		            <input type="button" id="sendCode" class="btn btn-code fr" value="发送验证码" />
+		        </div>
+	        </div>
+	        <input id="loginBtn" class="btn btn-reg" type="button" value="立即登录"/>
+	        <button class="btn btn-login" onclick="toReg('login');">没有账号，立即注册</button>
+	        <p class="error"></p>
+	    </form>
+    </div>
+</div>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+</body>
+</html>

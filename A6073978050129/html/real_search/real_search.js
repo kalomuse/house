@@ -21,6 +21,19 @@ function SearchHouse() {
   var keyword = $('#keyword').val();
   glo.open_win('../real_time/real_time', {keyword: keyword});
 }
+//楼盘事件处理函数
+function bindViewpro() {
+  glo.open_frame('../main');
+}
+//经济人事件处理函数
+function bindViewsale() {
+  glo.open_win('../salelist/salelist');
+}
+//资讯事件处理函数
+function bindViewnews() {
+  glo.open_frame('../news/news');
+}
+
 function bindClear_history() {
   glo.post('/api/house/clearHistory', {}, function (res) {
       vue.searchlist = res.data;

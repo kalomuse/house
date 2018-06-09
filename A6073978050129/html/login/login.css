@@ -1,0 +1,62 @@
+html{
+	
+}
+#headerFixed{
+	position: fixed;
+	top:0;
+	left:0;
+	background-color: #fff;
+	height: 44px;
+	line-height: 44px;
+	width: 100%;
+	border-bottom: 1px #e77817 solid;
+	z-index: 9999;
+}
+#headerFixed .header{
+	position: relative;
+	text-align: center
+}
+.header .back{ position: absolute; left: 5px; cursor: pointer}
+.header .back .iconfont{ font-size: 20px; vertical-align: middle}
+.main{ padding: 5%; margin: 42px auto 0 auto; width: 90%;}
+.main input,
+.main button,
+.main label{ vertical-align: middle}
+.main input,
+.main button{ height: 40px; line-height: 40px;}
+.main input:focus{ outline: none}
+.form-part{ height: 45px; line-height: 45px; border-bottom: 1px solid #f0f0f0; background: #fff;}
+.border-none{ border:0}
+.form-part .iconfont{ display: inline-block; width: 10%; text-align: center; color: #666; font-size: 18px}
+.input-txt{ width: 88%;  border: none; border-radius: 5px; font-size: 14px;}
+.input-txt.code{ width: 45%; border: none; border-radius: 4px;}
+/*.btn-code{ width: 35%; margin-top: 5px; height: 35px; background: #d8bd97; border: none; color: #fff}*/
+.btn-code{ width: 35%; color: #5682f0; background: none; border: none}
+.btn{ height: 38px; line-height: 38px; font-size: 16px}
+.btn-reg{ margin: 30px auto 15px auto; width: 100%; background: #5682f0; border: none; color: #fff}
+.btn-login{ width: 100%; border: 1px solid #5682f0; color: #5682f0; background: #fff}
+.agree{ margin: 0; padding: 0;}
+
+.logo_part{
+    margin: 20px auto;
+    width: 146px;
+}
+.logo_part .logo{
+    width: 146px;
+    height: 146px;
+    display: block;
+}
+.extra{ margin-top: 20px;}
+.cons{ border: 1px solid #f0f0f0; border-radius: 6px;}
+.top_lr_radio{
+    border-top-left-radius: 6px;
+    border-top-right-radius: 6px;
+}
+.bottom_lr_radio{
+    border-bottom-left-radius: 6px;
+    border-bottom-right-radius: 6px;
+}
+.orange{ color: #5682f0;}
+.notAllow{ cursor: not-allowed;}
+.zmz-logo{ margin: 20px auto; width: 146;text-align: center; }
+.zmz-logo img{ width: 146px;}

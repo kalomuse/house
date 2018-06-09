@@ -27,7 +27,7 @@ function bindViewsale() {
 }
 //房价事件处理函数
 function bindViewprice() {
-  glo.open_win('../real_search/real_search');
+  glo.open_frame('../real_search/real_search');
 }
 
 apiready = function() {

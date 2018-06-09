@@ -23,7 +23,8 @@ function bindViewhouse_location() {
 }
 //经济人事件处理函数
 function bindViewsale() {
-  glo.open_win('salelist/salelist');
+  //glo.open_win('salelist/salelist');
+  glo.open_win('login/login');
 }
 //资讯事件处理函数
 function bindViewnews() {
@@ -31,7 +32,7 @@ function bindViewnews() {
 }
 //房价事件处理函数
 function bindViewprice() {
-  glo.open_win('real_search/real_search');
+  glo.open_frame('real_search/real_search');
 }
 //楼盘详情事件处理函数
 function bindViewproview(id) {
