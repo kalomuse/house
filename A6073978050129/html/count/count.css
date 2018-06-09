@@ -1,0 +1,234 @@
+/* pages/count/count.wxss */
+.body{
+  height: 100%;
+}
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+.count-tab{
+  width: 100%;
+  height: 50px;
+  text-align: center;
+  font-size: 0;
+  border-bottom: 10px solid #F6F5F5;
+}
+.count-tab p{
+  display: inline-block;
+  width: 48%;
+  height: 20px;
+  font-size: 14px;
+  color: #666;
+  line-height: 20px;
+  margin-top: 10px;
+}
+.count-tab p:first-child{
+  border-right: 1px solid #ccc;
+}
+.count-tab p.active{
+  color: #4A81F8;
+}
+.count-price{
+  width: 100%;
+  box-sizing: border-box;
+  padding: 10px;
+  border-bottom: 10px solid #F6F5F5;
+}
+.count-price .tit{
+  display: block;
+  font-size: 12px;
+  color: #999;
+  height: 20px;
+  line-height: 20px
+}
+.count-price text{
+  display: block;
+  font-size: 20px;
+  color: #4A81F8;
+  height: 28px;
+  line-height: 28px;
+  margin-bottom: 10px;
+}
+.count-price .count-price-item div{
+  float: left;
+  height: 40px;
+  padding: 0 15px 0 0;
+  margin-right: 15px
+}
+.count-price .count-price-item p:first-child{
+  border-right: 1px solid #ccc;
+}
+.count-price .count-price-item text{
+  display: block;
+  font-size: 12px;
+  color: #999;
+  height: 20px;
+  line-height: 20px
+}
+.count-wrap{
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
+}
+.count-btn{
+  width: 100%;
+  height: 36px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 36px;
+  color: #fff;
+  background: #5682f0;
+  margin: 15px 0 0 0;
+}
+.count-wrap .item{
+  width: 100%;
+  height: 50px;
+  padding: 5px 0 5px 54px;
+  position: relative;
+  box-sizing: border-box;
+  border-bottom: 1px solid #ccc;
+
+}
+.hidden{
+ display:none;
+}
+.count-wrap .item01{
+  padding: 5px 0 5px 67px;
+}
+.count-wrap .item label{
+  display: block;
+  height: 41px;
+  width: 54px;
+  font-size: 13px;
+  color: #777;
+  line-height: 41px;
+  position: absolute;
+  left: 0px;
+  top: 5px;
+}
+.count-wrap .item01 label{
+  width: 67px;
+}
+.count-wrap .item .icon01{
+  display: block;
+  height: 41px;
+  width: 15px;
+  font-size: 13px;
+  color: #333;
+  line-height: 41px;
+  position: absolute;
+  right: 0px;
+  top: 5px;
+  text-align: right;
+}
+.count-wrap .item .txt{
+  width: 100%;
+  border: 0 none;
+  height: 41px;
+  text-align: right;
+  padding: 0 15px;
+  font-size: 13px;
+  box-sizing: border-box;
+}
+.picke-txt{
+  width: 100%;
+  height: 41px;
+  font-size: 13px;
+  line-height: 41px;
+  color: #333;
+  box-sizing: border-box;
+  text-align: right;
+  padding: 0 15px;
+}
+.count-item{
+  display: none;
+}
+.count-item.current{
+  display: block;
+}
+
+.picker .picker-panel{
+
+    height: auto;/*总高度*/
+}
+
+.picker .picker-panel .picker-choose{
+
+    height: auto;/*标题高度*/
+
+    padding: 0 1rem;
+
+}
+
+.picker .picker-panel .picker-content .mask-top{
+
+    height: 5rem;/*内容区域上蒙层高度*/
+
+}
+
+.picker .picker-panel .picker-content .mask-bottom{
+
+    height: 5rem;/*内容区域下蒙层高度*/
+
+}
+
+.picker .picker-panel .wheel-wrapper .wheel{
+
+    height: 15rem;/*内容区域内容总高度*/
+
+}
+
+.picker .picker-panel .wheel-wrapper .wheel .wheel-scroll{
+
+    margin-top: 5rem;/*内容滚动区域*/
+
+}
+
+.picker .picker-panel .wheel-wrapper .wheel .wheel-scroll .wheel-item{
+
+    font-size: 1.5rem;/*滚动区域列表ul>li*/
+
+    line-height: 5rem;
+
+    height: auto;
+
+}
+
+.picker .picker-panel .picker-choose .picker-title{
+
+    font-size: 1.5rem;/*滚动选择器title*/
+
+    line-height: 4rem;
+
+}
+
+.picker .picker-panel .picker-choose span{
+
+    font-size: 1.5rem;/*滚动选择器的 确定 和 取消*/
+
+    line-height: 4rem;
+
+    padding:0!important;
+
+    top:0!important;
+
+    position: relative!important;
+
+}
+
+.picker .picker-panel .picker-choose .cancel{
+
+    float: left;/*滚动选择器的 取消*/
+
+}
+
+.picker .picker-panel .picker-choose .confirm{
+
+    float: right;/*滚动选择器的 确定*/
+
+}
