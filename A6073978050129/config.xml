@@ -9,7 +9,7 @@
     <content src="index.html" />
     <access origin="*" />
     <preference name="pageBounce" value="false"/>
-	<preference name="appBackground" value="rgb(255,255,255)"/>  <preference name="windowBackground" value="rgba(235,236,237,1)"/>  <preference name="frameBackgroundColor" value="rgb(255,255,255)"/>
+	<preference name="appBackground" value="rgb(255,255,255)"/>  <preference name="windowBackground" value="rgba(255,255,255)"/>  <preference name="frameBackgroundColor" value="rgb(255,255,255)"/>
 	<preference name="hScrollBarEnabled" value="false"/>
 	<preference name="vScrollBarEnabled" value="false"/>
 	<preference name="autoLaunch" value="true"/>
