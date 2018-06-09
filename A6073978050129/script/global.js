@@ -179,12 +179,12 @@ var glo = {
      }, callback2
    );
   },
-  show_progress: function() {
+  show_progress: function(str) {
     api.showProgress({
      style: 'default',
      animationType: 'zoom',
      title: '',
-     text: '拼命的在加载...',
+     text: str?str:'拼命的在加载...',
      modal: true
    });
    setTimeout("glo.hide_progress()",3000);
