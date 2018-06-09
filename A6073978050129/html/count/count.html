@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="count.css" />
+</head>
+<body>
+
+  <div class="container">
+    <header class="header" id="header">  <!-- 2 -->
+      <a class="go-back" onclick="glo.open_frame('../real_search/real_search')"></a>
+      <h2 class="web-tit">房贷计算器</h2>
+    </header>
+  <div class="count-tab">
+    <p id="xi" onclick="tabbar(this)" class="active" >等额本息</p>
+    <p id="jin" onclick="tabbar2(this)">等额本金</p>
+    <input id="way" class="hidden" value="0" >
+  </div>
+
+  <div class="count-price">
+    <label class="tit">参考月供(元)</label>
+    <text id="yuegong" class="text01">0</text>
+    <div class="count-price-item">
+      <div id="jian" class="hidden"> <label class="tit">每月递减额（元）</label><text id="dijian" class="text01">0</text>    </div>
+      <div> <label class="tit">还款总额（元）</label><text id="zonge" class="text01">0</text>      </div>
+      <div><label class="tit">支付利息（元）</label><text id="lixi" class="text01">0</text>    </div>
+  </div>
+  </div>
+
+<div class="count-wrap">
+<div>
+<div class="item">
+  <label>贷款类型</label>
+  <div class="picke-txt" id="type" name="type">
+  <select style="height: 32px;width:270px;border: 1px solid #e3e3e3;font-family:Microsoft YaHei;font-size: 14px;" class="picke" id="leixin" onchange="leixin()">
+   <option value="0" selected="selected">公积金贷款</option>
+      <option value="1">商业贷款</option>
+         <option value="2">组合贷款</option>
+
+
+  </select>
+
+   <icon class="iconfont icon-jiantou1 icon01"></icon>
+</div>
+</div>
+<div class="item" id="dai">
+   <label>贷款总额</label>
+    <input id="number" value="0" type="number" class="txt" placeholder="请输入金额" ></input><icon class="icon01">万</icon>
+</div>
+<div class="item">
+    <label>贷款年限</label>
+    <div class="picke-txt">
+      <select id="mouth" style="height: 32px;width:270px;border: 1px solid #e3e3e3;font-family:Microsoft YaHei;font-size: 14px;" class="picke">
+                     <option value="12">1年（12期）</option>
+                     <option value="24">2年（24期）</option>
+                     <option value="36">3年（36期）</option>
+                     <option value="48">4年（48期）</option>
+                     <option value="60">5年（60期）</option>
+                     <option value="72">6年（72期）</option>
+                     <option value="84">7年（84期）</option>
+                     <option value="96">8年（96期）</option>
+                     <option value="108">9年（108期）</option>
+                     <option value="120">10年（120期）</option>
+                     <option value="132">11年（132期）</option>
+                     <option value="144">12年（144期）</option>
+                     <option value="156">13年（156期）</option>
+                     <option value="168">14年（168期）</option>
+                     <option value="180">15年（180期）</option>
+                     <option value="192">16年（192期）</option>
+                     <option value="204">17年（204期）</option>
+                     <option value="216">18年（216期）</option>
+                     <option value="228">19年（228期）</option>
+                     <option value="240" selected="selected">20年（240期）</option>
+                     <option value="300">25年（300期）</option>
+                     <option value="360">30年（360期）</option>
+
+
+      </select>
+    </div>
+  </div>
+  <div class="count-item current" id="gong">
+    <div class="item item01">
+      <label>公积金利率</label>
+      <div class="picke-txt">
+        <input id="lilv" type="number" class="txt" value="0" placeholder="基利率" ></input><icon class="icon01">%</icon>
+      </div>
+    </div>
+  </div>
+  <div class="count-item" id="sang">
+    <div class="item">
+       <label>商贷利率</label>
+       <div  class="picke-txt">
+        <input id="lilv2" type="number" class="txt" value="0" placeholder="基利率" ></input><icon class="icon01">%</icon>
+          <icon class="iconfont icon-jiantou1 icon01"></icon>
+       </div>
+    </div>
+  </div>
+  <div class="count-item" id="gong2">
+    <div class="item item01">
+       <label>公积金贷款</label>
+        <input class="txt" id="kuan1" type="text"  placeholder="公积金贷款上限为120万"></input><icon class="icon01">万</icon>
+    </div>
+      <div class="item item01">
+        <label>公积金贷款</label>
+        <div  class="picke-txt">
+            <input id="lilv3" type="number" class="txt" value="0" placeholder="基利率" ></input><icon class="icon01">%</icon>
+           <icon class="iconfont icon-jiantou1 icon01"></icon>
+        </div>
+      </div>
+  </div>
+  <div class="item hidden" id="dai2">
+     <label>商业贷款</label>
+      <input class="txt"  type="text" id="kuan2" placeholder="请输入金额"></input><icon class="icon01">万</icon>
+  </div>
+    <div class="item hidden" id="sang2">
+      <label>商贷利率</label>
+      <div class="picke-txt">
+      <input id="lilv4" type="number" class="txt" value="0" placeholder="基利率" ></input><icon class="icon01">%</icon>
+        <icon class="iconfont icon-jiantou1 icon01"></icon>
+      </div>
+    </div>
+   <button class="count-btn" onclick="start()">开始计算</button>
+</form>
+
+</div>
+
+
+</div>
+
+<script type="text/javascript" src="count.js"></script>
+<script type="text/javascript" src="picker.min.js"></script>
+<script type="text/javascript" src="../../script/global.js"></script>
+<script type="text/javascript" src="../../script/api.js"></script>
+<script type="text/javascript" src="../../script/jquery.min.js"></script>
+</body>
+</html>
