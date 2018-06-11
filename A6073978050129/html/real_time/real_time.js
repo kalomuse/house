@@ -1,5 +1,6 @@
 
 apiready = function() {
+  glo.init();
   //初始化必须调用
   $('#keyword').val(api.pageParam.keyword);
   realsearch();
