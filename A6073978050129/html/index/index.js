@@ -121,7 +121,7 @@ apiready = function() {
     UIScrollPicture.open({
         rect: {
             x: 0,
-            y: 85,
+            y: 95,
             w: api.winWidth,
             h: api.winWidth * 0.433
         },
