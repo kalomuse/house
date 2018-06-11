@@ -11,6 +11,9 @@ var vue = new Vue({
   },
   methods:{
     bindViewsearch_result: function(keyword){
+      if(!keyword) {
+        glo.alert('请输入小区名称，如塞纳蓝湾');
+      }
       glo.open_win('../real_time/real_time', {keyword: keyword});
     },
   }
@@ -20,6 +23,9 @@ var vue = new Vue({
 function SearchHouse() {
   var keyword = $('#keyword').val();
   var searchlist = vue.searchlist;
+  if(!keyword) {
+    return glo.alert('请输入小区名称，如塞纳蓝湾');
+  }
   if(searchlist.length >= 3) {
     searchlist.pop();
     searchlist.unshift({keyword:keyword})

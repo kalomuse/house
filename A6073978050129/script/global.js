@@ -1,4 +1,4 @@
-var website = "http://192.168.18.118:4015";
+var website = "http://house.jiashanquan.top";
 //var website = "http://192.168.18.107:5270";
 
 var glo = {
