@@ -1,0 +1,107 @@
+/* pages/salelist/salelist.wxss */
+.container{
+  padding: 0 0 60px 0;
+}
+.register-btn-wrap{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  text-align: center;
+  width: 100%;
+  height: 60px;
+  padding: 10px;
+  box-sizing: border-box;
+  background: #fff;
+}
+.register-btn{
+  width: 100%;
+  height: 40px;
+  background: #5f83e9;
+  font-size: 14px;
+  color: #fff;
+  line-height: 40px;
+  border-radius: 5px;
+}
+.register-btn01,
+.register-btn02{
+  display: inline-block;
+  width: 45%;
+  height: 40px;
+  box-sizing: border-box;
+  font-size: 14px;
+  text-align: center;
+  line-height: 38px;
+  border: 1px solid #5f83e9;
+  border-radius: 5px;
+}
+.register-btn01{
+  margin: 0 10% 0 0;
+  background: #fff;
+  font-size: 14px;
+  color: #5f83e9;
+}
+.register-btn02{
+  background: #5f83e9;
+  color: #fff;
+}
+.salelist{
+  padding: 10px;
+  width: 100%;
+  box-sizing: border-box;
+}
+.salelist .item{
+  width: 100%;
+  height: 50px;
+  border-top: 1px solid #ddd;
+  padding: 12px 0;
+  position: relative;
+}
+.salelist .item:first-child{
+  border: 0px none;
+}
+.salelist .img{
+  float: left;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid #ddd;
+  margin-right: 15px;
+}
+.salelist .img img{
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.salelist .info{
+  padding: 0 40px 0 0;
+}
+.salelist .info .name{
+  font-size: 15px;
+  color: #333;
+  height: 19px;
+  line-height: 19px;
+  padding: 1px 0 0 0;
+  margin: 0;
+}
+.salelist .info .phone{
+  font-size: 12px;
+  color: #999;
+  height: 20px;
+  line-height: 20px;
+  margin: 0;
+}
+.salelist .info .phone i{
+  color: #666;
+  font-size: 12px;
+}
+.salelist .info .iconfont{
+  width: 40px;
+  height: 50px;
+  position: absolute;
+  top: 10px;
+  right: 0;
+  font-size: 28px;
+  text-align: center;
+  line-height: 50px;
+  color: #6184e9;
+}

@@ -70,7 +70,7 @@
   align-items: center;
   justify-content: space-between;
   box-sizing: border-box;
-  position: relative;
+  position:relative;
 }
 .fl{
   float: left;
@@ -91,6 +91,7 @@
   overflow: hidden;
   padding: 0 8px;
   border-top: 1px solid #ccc;
+  z-index: 99;
 }
 .nav-wrap .nav-item{
   display: inline-block;

@@ -21,10 +21,15 @@ function bindViewsearch() {
 function bindViewhouse_location() {
   glo.open_win('house_location/house_location');
 }
-//经济人事件处理函数
-function bindViewsale() {
+//楼盘事件处理函数
+function bindViewprolist() {
   //glo.open_win('salelist/salelist');
-  glo.open_win('login/login');
+  glo.open_win('prolist/prolist');
+}
+//经济人事件处理函数
+function bindViewsalelist() {
+  //glo.open_win('salelist/salelist');
+  glo.open_win('salelist/salelist');
 }
 //资讯事件处理函数
 function bindViewnews() {
