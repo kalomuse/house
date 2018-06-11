@@ -11,7 +11,8 @@ var vue = new Vue({
     agentlist:{},
     isAgent:0,
     page: 1
-  },
+  }
+});
   onLoad: function (options) {
     var obj = this;
     //获取经纪人列表
@@ -20,7 +21,7 @@ var vue = new Vue({
       success: function (res) {
         obj.setData({ agentlist: res.data.data });
       }
-    }),
+    })
     //是否为经纪人
       wx.request({
         url: obj.data.server_host + '/api/agent/isAgent',
@@ -34,7 +35,7 @@ var vue = new Vue({
 
         }
       })
-  },
+  }
   /**
    * 页面上拉触底事件的处理函数
    */
@@ -68,15 +69,14 @@ var vue = new Vue({
       }
     })
 
-  },
+  }
   //经济人事件处理函数
   function bindViewsale() {
     //glo.open_win('salelist/salelist');
     glo.open_win('sale/sale');
-  },
+  }
   //查看客户事件处理函数
   function bindViewsale() {
     //glo.open_win('salelist/salelist');
     glo.open_win('userlist/userlist');
   }
-})
