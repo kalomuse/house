@@ -49,7 +49,7 @@ function bindViewnews() {
 }
 //计算器处理函数
 function intention(){
-  glo.open_frame('../count/count');
+  glo.open_win('../count/count');
 }
 
 function bindClear_history() {
