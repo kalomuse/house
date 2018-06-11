@@ -17,7 +17,7 @@ function realsearch() {
      });
      return false
    }
-   setTimeout("glo.show_progress('正在查询...');", 300);
+   glo.show_progress('正在查询...');
    $api.post('http://scrapy.jiashanquan.top/?a='+api.pageParam.keyword, {},function (res) {
       glo.hide_progress();
       var res = JSON.parse(res.msg), data = {}

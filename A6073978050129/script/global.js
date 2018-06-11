@@ -180,14 +180,10 @@ var glo = {
    );
   },
   show_progress: function(str) {
-    api.showProgress({
-     style: 'default',
-     animationType: 'zoom',
-     title: '',
-     text: str?str:'拼命的在加载...',
-     modal: true
-   });
-   setTimeout("glo.hide_progress()",3000);
+    var str = str?str:'拼命的在加载...';
+    var test = "api.showProgress({style: 'default',animationType: 'zoom',title: '',text: '" + str + "',modal: true});";
+    setTimeout(test, 300);
+    setTimeout("glo.hide_progress()",3000);
  },
  hide_progress: function(){
      api.hideProgress();

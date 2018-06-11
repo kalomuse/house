@@ -1,17 +1,3 @@
-var vue = new Vue({
-  el: '.container',
-  data: {
-    website: website,
-    userInfo: {},
-    hasUserInfo: false,
-    bannerlist:{},
-    houselist:[1,2,3],
-    regionid: 330421,
-    region:'嘉善县',
-    purpose:'填写购房意向，让经济人来帮你找房',
-    purposeid:0
-  }
-})
 
 //搜索事件处理函数
 function bindViewsearch() {
@@ -57,7 +43,20 @@ function bindViewintention() {
 }
 
 apiready = function() {
-
+  var vue = new Vue({
+    el: '.container',
+    data: {
+      website: website,
+      userInfo: {},
+      hasUserInfo: false,
+      bannerlist:{},
+      houselist:[1,2,3],
+      regionid: 330421,
+      region:'嘉善县',
+      purpose:'填写购房意向，让经济人来帮你找房',
+      purposeid:0
+    }
+  })
   glo.init();
   //====================================
   //首次登录APP后，设置无需再显示登录欢迎页
@@ -134,5 +133,6 @@ apiready = function() {
         fixed: false,
         interval: 1000
     });
+    glo.hide_progress();
   });
 };
