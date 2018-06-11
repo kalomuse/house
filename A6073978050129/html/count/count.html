@@ -9,7 +9,7 @@
 </head>
 <body>
 
-  <div class="container">
+  <div class="container mt-85">
     <header class="header" id="header">  <!-- 2 -->
       <a class="go-back" onclick="glo.open_frame('../real_search/real_search')"></a>
       <h2 class="web-tit">房贷计算器</h2>
@@ -35,7 +35,7 @@
 <div class="item">
   <label>贷款类型</label>
   <div class="picke-txt" id="type" name="type">
-  <select style="height: 32px;width:270px;border: 1px solid #e3e3e3;font-family:Microsoft YaHei;font-size: 14px;" class="picke" id="leixin" onchange="leixin()">
+  <select style="background:white;height: 32px;width:270px;border: 1px solid #e3e3e3;font-family:Microsoft YaHei;font-size: 14px;" class="picke" id="leixin" onchange="leixin()">
    <option value="0" selected="selected">公积金贷款</option>
       <option value="1">商业贷款</option>
          <option value="2">组合贷款</option>
@@ -43,17 +43,17 @@
 
   </select>
 
-  
+
 </div>
 </div>
 <div class="item" id="dai">
    <label>贷款总额</label>
-    <input id="number" value="0" type="number" class="txt" placeholder="请输入金额" ></input><icon class="icon01">万</icon>
+    <input id="number" type="number" class="txt" placeholder="请输入金额" ></input><icon class="icon01">万</icon>
 </div>
 <div class="item">
     <label>贷款年限</label>
     <div class="picke-txt">
-      <select id="mouth" style="height: 32px;width:270px;border: 1px solid #e3e3e3;font-family:Microsoft YaHei;font-size: 14px;" class="picke">
+      <select id="mouth" style="background:white;height: 32px;width:270px;border: 1px solid #e3e3e3;font-family:Microsoft YaHei;font-size: 14px;" class="picke">
                      <option value="12">1年（12期）</option>
                      <option value="24">2年（24期）</option>
                      <option value="36">3年（36期）</option>
@@ -85,7 +85,7 @@
     <div class="item item01">
       <label>公积金利率</label>
       <div class="picke-txt">
-        <input id="lilv" type="number" class="txt" value="0" placeholder="基利率" ></input><icon class="icon01">%</icon>
+        <input id="lilv" type="number" class="txt" placeholder="基利率" ></input><icon class="icon01">%</icon>
       </div>
     </div>
   </div>
