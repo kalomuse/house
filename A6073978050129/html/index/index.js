@@ -86,35 +86,13 @@ apiready = function() {
     vue.regionid =  $api.getStorage('regionid');
   }
   $api.setStorage('regionid', vue.regionid);
-
+  //glo.echo(vue.regionid);
   //获取地理信息
   glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
       vue.region =  res.data.area;
   });
-  var qqmapsdk = new QQMapWX({
-    key: 'SKZBZ-IKWHV-M4UPR-UQECL-WKXUF-WLBZ5' // 必填
-  });
-  qqmapsdk.reverseGeocoder({
-   location: {
-     latitude: 30.83075,
-     longitude: 120.92716
-   },
-   success: function (addressRes) {
 
-     var address = addressRes.result.address_component.district;
-     wx.request({
-       url: obj.data.server_host + '/api/region/getRegionid',
-       data: { region: address },
-       success: function (res) {
-         if (res.data.Code) {
 
-           obj.setData({
-             regionid: res.data.data,
-             region: address
-           })
-         }
-       }
-     })
  //获取推荐楼盘
   glo.post('/api/index/getRemhouses', { regionid: vue.regionid }, function (res) {
       vue.houselist =  res.data;
