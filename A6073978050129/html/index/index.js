@@ -81,6 +81,64 @@ apiready = function() {
           }
       });
   });
+  //定位
+  var bMap = api.require('bMap');
+bMap.getLocationServices(function(ret, err) {
+    if (ret.enable) {
+      bMap.getLocation({
+    accuracy: '100m',
+    autoStop: true,
+    filter: 1
+}, function(ret, err) {
+    if (ret.status) {
+        //alert(JSON.stringify(ret));
+         $api.setStorage('lat', ret.lat);
+         $api.setStorage('lon', ret.lon);
+        // alert($api.getStorage("lat"));
+        bMap.stopLocation();
+    } else {
+        alert(err.code);
+    }
+});
+    } else {
+        alert("未开启定位功能！");
+    }
+});
+
+$(function () {  
+            var latlon = null;  
+            //ajax获取用户所在经纬度  
+           
+                    latlon = $api.getStorage('lat') + "," + $api.getStorage('lon'); 
+                    //latlon = 30.804372+","+120.934912; 
+                    
+                    //ajax根据经纬度获取省市区  
+                    $.ajax({  
+                        type: "POST",  
+                        dataType: "jsonp",  
+                        url: 'http://api.map.baidu.com/geocoder/v2/?ak=zYNPUG3MAwjKNlykePjz9aG7&callback=renderReverse&location=' + latlon + '&output=json&pois=0',  
+                        success: function (json) {  
+                            if (json.status == 0) {  
+  vue.region=json.result.addressComponent.district;
+//                                 console.log(json);  
+//                                 alert(json.result.addressComponent.district);
+                                $.ajax({ 
+              type: "POST", 
+              dataType: "json", 
+              url:'https://house.jiashanquan.top'+'/api/region/getRegionid',
+              data:{region:json.result.addressComponent.district},
+              success:function(json){
+                vue.regionid=json.data;
+                // alert(json.data);
+              }
+                                     });  
+                            }  
+                        }  
+                 
+            });  
+        });  
+
+
 
   if ($api.getStorage('regionid')){
     vue.regionid =  $api.getStorage('regionid');
