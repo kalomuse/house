@@ -106,37 +106,36 @@ bMap.getLocationServices(function(ret, err) {
 });
 
 $(function () {  
-            var latlon = null;  
-            //ajax获取用户所在经纬度  
-           
-                    latlon = $api.getStorage('lat') + "," + $api.getStorage('lon'); 
-                    //latlon = 30.804372+","+120.934912; 
-                    
-                    //ajax根据经纬度获取省市区  
-                    $.ajax({  
-                        type: "POST",  
-                        dataType: "jsonp",  
-                        url: 'http://api.map.baidu.com/geocoder/v2/?ak=zYNPUG3MAwjKNlykePjz9aG7&callback=renderReverse&location=' + latlon + '&output=json&pois=0',  
-                        success: function (json) {  
-                            if (json.status == 0) {  
-  vue.region=json.result.addressComponent.district;
-//                                 console.log(json);  
-//                                 alert(json.result.addressComponent.district);
-                                $.ajax({ 
-              type: "POST", 
-              dataType: "json", 
-              url:'https://house.jiashanquan.top'+'/api/region/getRegionid',
-              data:{region:json.result.addressComponent.district},
-              success:function(json){
-                vue.regionid=json.data;
-                // alert(json.data);
-              }
-                                     });  
-                            }  
-                        }  
-                 
-            });  
-        });  
+  var latlon = null;  
+  //ajax获取用户所在经纬度  
+  latlon = $api.getStorage('lat') + "," + $api.getStorage('lon'); 
+  //latlon = 30.804372+","+120.934912; 
+  //ajax根据经纬度获取省市区  
+  $.ajax({  
+      type: "POST",  
+      dataType: "jsonp",  
+      url: 'http://api.map.baidu.com/geocoder/v2/?ak=zYNPUG3MAwjKNlykePjz9aG7&callback=renderReverse&location=' + latlon + '&output=json&pois=0',  
+      success: function (json) {  
+        if (json.status == 0) {  
+          vue.region=json.result.addressComponent.district;
+          var city=json.result.addressComponent.district;
+          // console.log(json);  
+          //  alert(json.result.addressComponent.district);
+          $.ajax({ 
+            type: "POST", 
+            dataType: "json", 
+            url:'https://house.jiashanquan.top'+'/api/region/getRegionid',
+            data:{region:json.result.addressComponent.district},
+            success:function(json){
+              vue.regionid=json.data;
+              $('.index-location-btn').html(city+'<div class="iconfont icon-jikediancanicon13"></div>');
+              //alert(json.result.addressComponent.district);
+            }
+          });  
+        }  
+      }  
+    });  
+});  
 
 
 

@@ -3,7 +3,6 @@
 .pro-list{
   width: 100%;
   padding: 100px 10px;
-  border-top: 10px solid #f5f5f5;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
@@ -59,6 +58,8 @@
   top: 65px;
   background: #fff;
   z-index: 9;
+  font-size: 0;
+  border-bottom: 10px solid #f5f5f5;
 }
 .scree-item{
   display: inline-block;
@@ -66,10 +67,10 @@
   height: 40px;
   text-align: center;
   font-size: 13px;
-  line-height: 50%;
+  line-height: 40px;
   color: #666;
 }
-.scree-item icon{
+.scree-item em{
   padding: 0 2px;
   color: #666;
   line-height: 40px;
@@ -77,7 +78,7 @@
 .scree-item.active{
   color: #5682f0;
 }
-.scree-item.active icon{
+.scree-item.active em{
   color: #5682f0;
   transform:rotate(180deg);
   -ms-transform:rotate(180deg); /* Internet Explorer */
@@ -103,7 +104,7 @@
   background: #fff;
   position: fixed;
   left: 0;
-  top: 40px;
+  top: 105px;
   z-index:10;
 }
 .pop-wrap .pop-tit{
@@ -130,14 +131,14 @@
   color: #666;
   line-height: 30px;
   text-align: center;
-  margin: 3px 3px;
+  margin: 3px 1%;
   border: 1px solid #ccc;
   border-radius: 5px;
   box-sizing: border-box;
   padding: 0 5px;
 }
 .pop-wrap .pop-choice-list02 label{
-  min-width: 31%;
+  min-width: 30%;
 }
 .pop-wrap .pop-choice-list label.current{
   background: #5682f0;
@@ -176,6 +177,7 @@
   padding: 10px;
   box-sizing: border-box;
   width: 100%;
+  height: 52px;
 }
 .txt-wrap .txt{
   float: left;
