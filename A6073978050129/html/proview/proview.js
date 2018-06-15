@@ -42,5 +42,21 @@ apiready = function() {
   glo.post('/api/house/getHousetype', { id: id }, function (res) {
       vue.housetype =  res.data;
   });
+  function callMobile() {
 
+  }
+  callMobile:function(e){
+      var obj=this;
+      wx.makePhoneCall({
+        phoneNumber: obj.data.telephone, //此号码并非真实电话号码，仅用于测试
+      })
+    },
+    callWechat:function(e){
+      var obj = this;
+      wx.showToast({
+        title: '请添加微信号：' + obj.data.wechat,
+        icon: 'none',
+        duration: 5000
+      })
+    },
 };

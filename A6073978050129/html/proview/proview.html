@@ -22,7 +22,7 @@
         <div class="pro-address" data-address="{{houseinfo.address}}" data-longitude="{{houseinfo.longitude}}" data-latitude="{{houseinfo.latitude}}" data-title="{{houseinfo.title}}" bindtap="showAdd">
           <icon class="iconfont icon-dingwei"></icon>{{houseinfo.address}}
         </div>
-        <div class="pro-phone" bindtap="callMobile"><icon class="iconfont icon-dianhua"></icon></div>
+        <!-- <div class="pro-phone" bindtap="callMobile"><icon class="iconfont icon-dianhua"></icon></div> -->
       </div>
     </div>
     <div class="wrap-b pro-list-wrap">
@@ -92,9 +92,9 @@
       </div>
     </div>
     <div class="footer-list">
-      <div bindtap="callMobile"><icon class="iconfont icon-dianhua"></icon>电话咨询</div>
-      <div bindtap="callWechat"><icon class="iconfont icon-weixin"></icon>微信咨询</div>
-      <div bindtap="bindVieworder"><icon class="iconfont icon-yuyue"></icon>预约看房</div>
+      <div onclick="callMobile"><icon class="iconfont icon-dianhua"></icon>电话咨询</div>
+      <div onclick="callWechat"><icon class="iconfont icon-weixin"></icon>微信咨询</div>
+      <div onclick="bindVieworder"><icon class="iconfont icon-yuyue"></icon>预约看房</div>
     </div>
 </div>
  <script type="text/javascript" src="../../script/api.js"></script>

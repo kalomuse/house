@@ -3,9 +3,10 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
-  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
-  <link rel="stylesheet" type="text/css" href="prolist.css" />
+<meta name="format-detection" content="telephone=no">
+<link rel="stylesheet" type="text/css" href="../../css/api.css" />
+<link rel="stylesheet" type="text/css" href="../../css/common.css" />
+<link rel="stylesheet" type="text/css" href="prolist.css" />
 </head>
 <body>
     <div class="container mt-65">
@@ -18,7 +19,7 @@
       <div class="scree-item" bindtap="bindMore">状态<em class="iconfont icon-jikediancanicon13"></em></div>
     </div>
     <!--价格弹出层  start-->
-    <div class="pop-wrap-bg">
+    <div class="pop-wrap-bg pop-show">
       <form class="pop-wrap">
         <div class="pop-item">
           <div class="pop-tit">单价(元/平)</div>
@@ -88,21 +89,7 @@
 
     <!--更多弹出层  end-->
 
-    <!--楼盘列表  start-->
-    <div class="pro-list" v-if="{{houselist}}">
-      <div class="pro-item" v-on:click="bindViewproview(v.id)" v-for="v in houselist">
-        <div class="pro-img"><img :src="website + v.first_img" /></div>
-        <div class="pro-name">
-          <div class="fl pro-tit">{{v.title}}</div>
-          <div class="fr pro-priec" v-if="{{v.price}}">{{v.price}}<em>元/平</em></div>
-          <div class="fr pro-priec" v-else>价格待定</div>
-        </div>
-        <div class="pro-address">{{v.address}}</div>
-      </div>
 
-    </div>
-    <!--楼盘列表  end-->
-    <div class="no-data" v-else>没有相关数据</div>
   </div>
 
  <script type="text/javascript" src="../../script/api.js"></script>

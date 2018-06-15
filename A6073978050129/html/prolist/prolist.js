@@ -80,27 +80,22 @@ $('.screen-wrap .scree-item').on('click',function(){
 });
 $('.pop-choice-list01 label').on('click',function(){
   $(this).addClass('current').siblings().removeClass('current');
-  vue({
-    typenum: $(this).data('typenum'),
-    htype: $(this).data('type')
-  });
+  vue.typenum= $(this).data('typenum');
+  vue.htype= $(this).data('type');
 });
 $('.pop-choice-list03 label').on('click',function(){
   $(this).addClass('current').siblings().removeClass('current');
-  vue({
-    statusnum: $(this).data('statusnum'),
-    hstatus: $(this).data('type')
-  });
+  vue.statusnum= $(this).data('statusnum');
+  vue.hstatus= $(this).data('type');
 });
 $('.pop-choice-list02 label').on('click',function(){
+  e.preventDefault();
   $(this).addClass('current').siblings().removeClass('current');
   $(".txt-wrap .txt").eq(0).find('input').val($(this).data('pmin'));
   $(".txt-wrap .txt").eq(1).find('input').val($(this).data('pmax'));
-  vue({
-    pricenum: $(this).data('pricenum'),
-    pmin: $(this).data('pmin'),
-    pmax: $(this).data('pmax')
-  });
+  vue.pricenum= $(this).data('pricenum');
+  vue.pmin=$(this).data('pmin');
+  vue.pmax= $(this).data('pmax');
 });
 $('.cancel-btn').on('click',function(){
   $('.screen-wrap .scree-item').removeClass('active');
