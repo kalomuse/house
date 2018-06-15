@@ -25,10 +25,6 @@ function bindViewnews() {
 function bindViewprice() {
   glo.open_frame('real_search/real_search');
 }
-//楼盘详情事件处理函数
-function bindViewproview(id) {
-  glo.open_win('proview/proview', {id: id});
-}
 
 function bindViewhouse() {
   glo.open_win('prolist/prolist');
@@ -55,6 +51,12 @@ apiready = function() {
       region:'嘉善县',
       purpose:'填写购房意向，让经济人来帮你找房',
       purposeid:0
+    },
+    methods:{
+      //楼盘详情事件处理函数
+      bindViewproview: function(id){
+        glo.open_win('proview/proview', {id: id});
+      }
     }
   })
   glo.init();

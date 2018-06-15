@@ -3,10 +3,9 @@ var vue = new Vue({
   el: '.container',
   data: {
     website: website,
-    userInfo: {},
-    hasUserInfo: false,
-    newlist:{},
-    page:1
+    houseid:'',
+    houseinfo:{},
+    housetype:{}
   },
   methods:{
     //资讯详情事件处理函数
