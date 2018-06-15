@@ -1,1 +1,106 @@
-proview
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="proview.css" />
+</head>
+<body>
+<div class="container mt-65">
+    <header class="header" id="header">  <!-- 2 -->
+  		<h2 class="web-tit">{{houseinfo.title}}</h2>
+  	</header>
+    <div class="pro-header-wrap">
+
+      <div style="height:162px;width:100%;margin-bottom:15px;" class="banner"></div>
+      <div class="pro-tit">{{houseinfo.title}}</div>
+      <div class="pro-price" v-if="houseinfo.price">{{houseinfo.price}}<icon>元/平</icon></div>
+      <div class="pro-price" v-else>价格待定</div>
+      <div class="pro-address-wrap">
+        <div class="pro-address" data-address="{{houseinfo.address}}" data-longitude="{{houseinfo.longitude}}" data-latitude="{{houseinfo.latitude}}" data-title="{{houseinfo.title}}" bindtap="showAdd">
+          <icon class="iconfont icon-dingwei"></icon>{{houseinfo.address}}
+        </div>
+        <div class="pro-phone" bindtap="callMobile"><icon class="iconfont icon-dianhua"></icon></div>
+      </div>
+    </div>
+    <div class="wrap-b pro-list-wrap">
+      <div class="info-tit">户型图(4)</div>
+      <div class="pro-list">
+        <div class="item" v-for="v in housetype">
+          <div class="img"><img :src="website + v.img" /></div>
+          <div class="tit">{{v.title}}</div>
+          <div class="size">{{v.summary}}</div>
+          <div class="price"> {{v.price}} </div>
+        </div>
+      </div>
+
+    </div>
+    <div class="wrap-b">
+      <div class="info-tit">交通配套</div>
+      <div class="pro-info">
+      </div>
+    </div>
+    <div class="wrap-b">
+      <div class="info-tit">楼盘介绍</div>
+      <div class="pro-info-wrap">
+        <div class="item">
+          <div class="tit">开盘日期：</div>
+          <div class="info">{{houseinfo.open_time}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">楼盘介绍：</div>
+          <div class="info">{{houseinfo.feature}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">楼盘类型：</div>
+          <div class="info">{{houseinfo.type}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">装修状况：</div>
+          <div class="info">{{houseinfo.decorate}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">占地面积：</div>
+          <div class="info">{{houseinfo.area}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">产权：</div>
+          <div class="info">{{houseinfo.property_right}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">绿化率：</div>
+          <div class="info">{{houseinfo.green_rate}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">物业公司：</div>
+          <div class="info">{{houseinfo.property_company}}</div>
+        </div>
+
+        <div class="item">
+          <div class="tit">交付日期：</div>
+          <div class="info">{{houseinfo.deliver_time}}</div>
+        </div>
+      </div>
+    </div>
+    <div class="footer-list">
+      <div bindtap="callMobile"><icon class="iconfont icon-dianhua"></icon>电话咨询</div>
+      <div bindtap="callWechat"><icon class="iconfont icon-weixin"></icon>微信咨询</div>
+      <div bindtap="bindVieworder"><icon class="iconfont icon-yuyue"></icon>预约看房</div>
+    </div>
+</div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="proview.js"></script>
+ </body>
+ </html>

@@ -38,7 +38,7 @@
 
   <!--楼盘列表  start-->
   <div class="pro-list" v-for="v in houselist">
-    <div  onclick="bindViewproview(1)" class="pro-item" data-id="{{v.id}}">
+    <div  v-on:click="bindViewproview(v.id)" class="pro-item" data-id="{{v.id}}">
       <div class="pro-img"><img :src="website + v.first_img" class="slide-image"/></div>
       <div class="pro-name">
         <div class="fl pro-tit">{{v.title}}</div>
