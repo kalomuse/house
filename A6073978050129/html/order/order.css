@@ -1,0 +1,103 @@
+/* pages/order/order.wxss */
+
+.container{
+  width: 100%;
+  padding: 5px 10px;
+  box-sizing: border-box;
+  margin-top: 60px;
+}
+.sale-wrap{
+  width: 100%;
+}
+.sale-tit{
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  color: #5682f0;
+  line-height: 30px;
+  padding: 5px 0;
+}
+.sale-tit icon{
+  font-size: 18px;
+  color: #4e8cee;
+}
+.sale-wrap .item{
+  width: 100%;
+  padding: 8px 0 4px 0;
+  border-bottom: 1px solid #ddd;
+  position: relative;
+  z-index: 1;
+}
+.sale-wrap .item .txt{
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #333;
+}
+.sale-wrap .item-b{
+  border: 0 none;
+}
+.sale-wrap .item .tit{
+  height: 30px;
+  padding-top: 8px;
+  font-size: 14px;
+  line-height: 20px;
+  color: #333;
+}
+.sale-wrap .item .txt-border{
+  width: 100%;
+  height: 36px;
+  padding:0 10px;
+  border: 1px solid #ddd;
+  box-sizing: border-box;
+  font-size: 14px;
+  color: #333;
+  line-height: 34px;
+  border-radius: 5px;
+}
+.sale-wrap .item .txt-code{
+  float: left;
+  width: 78%;
+}
+.sale-wrap .item .code-send-btn{
+  float: right;
+  width: 20%;
+  height: 30px;
+  box-sizing: border-box;
+  font-size: 14px;
+  line-height: 28px;
+  text-align: center;
+  color: #5682f0;
+  background: #fff;
+}
+.picker-txt{
+  width: 100%;
+  height: 30px;
+  font-size: 14px;
+  line-height: 30px;
+  color: #333;
+}
+.item icon{
+  position: absolute;
+  top: 8px;
+  right: 0;
+  font-size: 18px;
+  color: #999;
+  height: 30px;
+  line-height: 30px;
+  background: #fff;
+}
+.sub-btn{
+  width: 100%;
+  height: 36px;
+  font-size: 14px;
+  text-align: center;
+  line-height: 36px;
+  color: #fff;
+  background: #5682f0;
+  margin: 15px 0 0 0;
+}
+.sub-btn::after{
+  border: 0 none;
+}

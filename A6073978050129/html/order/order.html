@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="order.css" />
+</head>
+<body>
+  <header class="header" id="header">  <!-- 2 -->
+    <a class="go-back" onclick="api.closeWin()"></a>
+    <h2 class="web-tit">预约看房</h2>
+  </header>
+  <div class="container">
+    <div class="sale-wrap">
+      <div class="item">
+          <input class="txt" placeholder="真实姓名" name='name' id='name'></input>
+      </div>
+      <div class="item">
+        <input class="txt" placeholder="联系方式" name='telephone' id='telephone'></input>
+      </div>
+      <div class="item">
+      <div class="picker-txt">
+        <div value="" class="picker">意向楼盘 {{houseinfo.title}} </div>
+      </div>
+      </div>
+      <div class="item item-b">
+        <div class="tit">经济人姓名或联系方式</div>
+        <input class="txt-border" name="agent" id='agent'></input>
+      </div>
+      <button class="sub-btn" form-type='submit' onclick="submit()">提  交</button>
+    </div>
+  </div>
+  <script type="text/javascript" src="../../script/api.js"></script>
+  <script type="text/javascript" src="../../script/jquery.min.js"></script>
+  <script src="../../script/vue.js"></script>
+  <script type="text/javascript" src="../../script/global.js"></script>
+  <script type="text/javascript" src="order.js"></script>
+</body>
+</html>
