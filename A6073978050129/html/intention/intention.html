@@ -13,7 +13,7 @@
     <a class="go-back" onclick="api.closeWin()"></a>
     <h2 class="web-tit"></h2>
   </header>
-  <form bindsubmit='postPurpose'>
+  <form>
     <img src="../../images/intention_bg.jpg" class="intention_bg">
     <!--<icon class="iconfont icon-jiantou" onclick="onclickback"></icon>-->
     <div class="box-item" v-bind:class="{current: page01}">
@@ -28,7 +28,7 @@
           <label v-bind:class="{current: price==6}" onclick='selectprice(6)'>300-500万</label>
           <label v-bind:class="{current: price==7}" onclick='selectprice(7)'>500-1000万</label>
           <label v-bind:class="{current: price==8}" onclick='selectprice(8)'>1000-2000万</label>
-          <label v-bind:class="{current: price==9}"  onclick='selectprice(9)'>2000万以上</label>
+          <label v-bind:class="{current: price==9}" onclick='selectprice(9)'>2000万以上</label>
           <label v-bind:class="{current: price==0}" onclick='selectprice(0)'>不限</label>
         </div>
       </div>
@@ -74,14 +74,14 @@
       <div class="tit">您的联系方式？</div>
       <div class="box-cont">
         <div class="txt-item">
-          <input class="txt" v-bind:value="name" placeholder="请输入您的姓名" name="name"></input>
+          <input class="txt" v-bind:value="name" placeholder="请输入您的姓名" name="name" id="name"></input>
         </div>
         <div class="txt-item">
-          <input class="txt" v-bind:value="telephone" placeholder="请输入您的手机号码" name="telephone"></input>
+          <input class="txt" v-bind:value="telephone" placeholder="请输入您的手机号码" name="telephone" id="telephone"></input>
         </div>
       </div>
       <div class="intention-btn-wrap">
-        <button class="intention-btn">完成</button>
+        <div class="intention-btn" onclick="postPurpose()">完成</div>
       </div>
     </div>
   </form>

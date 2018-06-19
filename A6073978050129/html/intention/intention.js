@@ -20,7 +20,7 @@ var vue = new Vue({
       { name: '绿化好', checked: false },
       { name: '有停车位', checked: false },
     ],
-    name:'caonima',
+    name:'',
     telephone:''
   },
   methods:{
@@ -117,6 +117,57 @@ function selecttype(housetype) {
     vue.housetype = housetype
 }
 
+function postPurpose() {
+    var status = 1;
+    var name = $('#name').val();
+    var telephone = $('#telephone').val();
+    var price = vue.price;
+    var housetype = vue.housetype;
+    var areaid = vue.areaid;
+    var item = '';
+    for (var i in vue.item) {
+      var a = '';
+      if (vue.item[i].checked) {
+        a = vue.item[i].name;
+        if (item) {
+          item += ',' + a;
+        } else {
+          item = a;
+        }
+      }
+    }
+    if (status == 1 && !areaid) {
+      status = 0;
+      glo.alert('请选择位置');
+    }
+    if (status == 1 && !name) {
+      status = 0;
+      glo.alert('请填写您的姓名');
+    }
+    if (status == 1 && !telephone) {
+      status = 0;
+      glo.alert('请填写联系方式');
+    }
+
+    if (status == 1) {
+      glo.post('/api/purpose/postPurpose', {
+        'name': name,
+        'telephone': telephone,
+        'price': price,
+        'housetype': housetype,
+        'areaid': areaid,
+        'item':item
+      }, function (res) {
+        if (res.Code) {
+          glo.alert('您的购房意向已提交完成');
+          setTimeout("api.closeWin()", 2000);
+        } else {
+          glo.alert(res.Header.ErrorMessage);
+        }
+      });
+    }
+}
+
 
 apiready = function() {
   //初始化必须调用
@@ -125,25 +176,5 @@ apiready = function() {
   //获取地理信息
   glo.post('/api/purpose/getRegion', {regionid: $api.getStorage('regionid')}, function (res) {
       vue.arealist= res.data;
-  });
-  //获取购房意向
-  glo.post('/api/purpose/getPurpose', {areaid: $api.getStorage('regionid')}, function (res) {
-    if (res.Code) {
-      var item = res.data.arr;
-      var newitem = vue.item;
-      for(var i in vue.item) {
-        for(var k in item) {
-          if (vue.item[i].name==item[k]) {
-            newitem[i].checked = true;
-          }
-        }
-      }
-      vue.price = res.data.price;
-      vue.housetype = res.data.housetype;
-      vue.areaid = res.data.areaid;
-      vue.item = newitem;
-      vue.name = res.data.name;
-      vue.telephone = res.data.telephone;
-    }
   });
 };

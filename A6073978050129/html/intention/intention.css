@@ -126,14 +126,14 @@ form{
 }
 .txt-item{
   width: 86%;
-  height: 40px;
+  height: 45px;
   margin: 20px auto;
   background: #fff;
   box-sizing: border-box;
   font-size: 16px;
   color: #5682f0;
   border-radius: 5px;
-  line-height: 38px;
+  line-height: 42px;
   border: 1px solid #ddd;
 }
 .txt-item:first-child{
