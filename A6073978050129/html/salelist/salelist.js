@@ -12,7 +12,9 @@ var vue = new Vue({
     page: 1
   }
 });
-
+function binddivsale() {
+  glo.open_win('../sale/sale');
+}
 
   apiready = function() {
     //初始化必须调用
