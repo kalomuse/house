@@ -75,13 +75,9 @@ else  if(verify_code==''){
       code: verify_code
     },function(res){
       if(res.Code==1){
-        api.execScript({
-            name: 'main',
-            script: "goSalelist()"
-        });
-        api.closeWin();
-
-      }else {
+        $api.setStorage('token', res.data);
+        glo.open_frame(api.pageParam.from);
+      } else {
         glo.alert("验证码有误")
       }
       // glo.echo(res);

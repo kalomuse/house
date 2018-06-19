@@ -14,7 +14,7 @@ function bindViewprolist() {
 }
 //经济人事件处理函数
 function bindViewsalelist() {
-  glo.check_login('salelist/salelist',1,1);
+  glo.open_frame('salelist/salelist');
 }
 //资讯事件处理函数
 function bindViewnews() {

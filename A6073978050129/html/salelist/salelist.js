@@ -1,7 +1,7 @@
 //经济人事件处理函数
 function bindViewsale() {
   //glo.open_win('salelist/salelist');
-  glo.open_win('../sale/sale');
+  glo.check_login('../sale/sale');
 }
 //查看客户事件处理函数
 function bindViewuserlist() {
@@ -28,10 +28,6 @@ function binddivsale() {
 //楼盘事件处理函数
 function bindViewpro() {
   glo.open_frame('../main');
-}
-//经济人事件处理函数
-function bindViewsale() {
-  glo.open_frame('../salelist/salelist');
 }
 //资讯事件处理函数
 function bindViewnews() {
