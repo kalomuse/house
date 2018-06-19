@@ -91,12 +91,21 @@ var glo = {
     $api.post(url, {values: data}, callback);
   },
 
-  check_login: function(redirect) {
+  check_login: function(redirect, is_frame, is_root) {
     var self = this;
     if($api.getStorage('token')) {
-        return true;
+      if(is_frame) {
+        self.open_frame(redirect, {'from': redirect});
+      } else {
+        self.open_win(redirect, {'from': redirect});
+      }
+      return true;
     } else {
-      self.open_win({url:'../account/guide.html', pageParam: {'from': redirect}});
+      if(is_root) {
+        self.open_win('login/login', {'from': redirect});
+      } else {
+        self.open_win('../login/login', {'from': redirect});
+      }
       return false;
     }
   },

@@ -31,7 +31,6 @@ function bindViewprice() {
 apiready = function() {
   //初始化必须调用
   glo.init();
-
   //post事例
   glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
       vue.region =  res.data.area;

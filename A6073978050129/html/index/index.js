@@ -14,8 +14,7 @@ function bindViewprolist() {
 }
 //经济人事件处理函数
 function bindViewsalelist() {
-  glo.open_win('salelist/salelist');
-  //glo.open_win('login/login');
+  glo.check_login('salelist/salelist',1,1);
 }
 //资讯事件处理函数
 function bindViewnews() {
@@ -37,7 +36,9 @@ function bindViewintention() {
     glo.open_win('intention/intention');
   }
 }
-
+function goSalelist() {
+  glo.open_frame('salelist/salelist');
+}
 apiready = function() {
   vue = new Vue({
     el: '.container',
