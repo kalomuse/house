@@ -32,7 +32,7 @@ function SearchHouse() {
   } else {
     searchlist.unshift({keyword:keyword})
   }
-  $api.setStorage('searchlist', searchlist);
+  $api.setStorage('realsearchlist', searchlist);
   glo.open_win('../real_time/real_time', {keyword: keyword});
 }
 //楼盘事件处理函数
@@ -53,7 +53,7 @@ function intention(){
 }
 
 function bindClear_history() {
-  $api.setStorage('searchlist', []);
+  $api.setStorage('realsearchlist', []);
   vue.searchlist =  []
   /*glo.post('/api/house/clearHistory', {}, function (res) {
       vue.searchlist = res.data;
@@ -66,7 +66,7 @@ function bindClear_history() {
 apiready = function() {
   //初始化必须调用
   glo.init();
-  vue.searchlist = $api.getStorage('searchlist')? $api.getStorage('searchlist'): [];
+  vue.searchlist = $api.getStorage('realsearchlist')? $api.getStorage('realsearchlist'): [];
   //获取历史搜索
   /*glo.post('/api/house/getHistory', {}, function (res) {
       vue.searchlist = res.data;
