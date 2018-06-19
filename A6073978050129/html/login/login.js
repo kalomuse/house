@@ -74,7 +74,6 @@ else  if(verify_code==''){
       mobile: phone,
       code: verify_code
     },function(res){
-      glo.echo(res);
       if(res.Code==1){
         api.execScript({
             name: 'main',
