@@ -1,11 +1,5 @@
 //vue初始事例
 var wait = 150;
-var vue = new Vue({
-  el: '.container',
-  data: {
-    website: website,
-  }
-})
 
 function sendvercode(o){
   var phone = $.trim($('#phone').val());

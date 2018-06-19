@@ -23,7 +23,7 @@ function bindViewpro() {
 }
 //经济人事件处理函数
 function bindViewsale() {
-  glo.open_frame('../salelist/salelist');
+  glo.check_login('../salelist/salelist',1);
 }
 //房价事件处理函数
 function bindViewprice() {
