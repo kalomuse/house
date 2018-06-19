@@ -5,7 +5,8 @@ var vue = new Vue({
     website: website,
     houseid:'',
     houseinfo:{},
-    housetype:{}
+    housetype:{},
+    newlist:[],
   },
   methods:{
     //资讯详情事件处理函数

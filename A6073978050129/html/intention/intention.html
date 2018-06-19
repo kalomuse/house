@@ -1,1 +1,96 @@
-intention
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="intention.css" />
+</head>
+<body>
+<div class="container mt-65">
+  <header class="header" id="header">  <!-- 2 -->
+    <a class="go-back" onclick="api.closeWin()"></a>
+    <h2 class="web-tit"></h2>
+  </header>
+  <form bindsubmit='postPurpose'>
+    <img src="../../images/intention_bg.jpg" class="intention_bg">
+    <!--<icon class="iconfont icon-jiantou" onclick="onclickback"></icon>-->
+    <div class="box-item" v-bind:class="{current: page01}">
+      <div class="tit">您理想的房价是多少？</div>
+      <div class="box-cont">
+        <div class="price-list">
+          <label v-bind:class="{current: price==1}" onclick='selectprice(1)'>100万以下</label>
+          <label v-bind:class="{current: price==2}" onclick='selectprice(2)'>100-150万</label>
+          <label v-bind:class="{current: price==3}" onclick='selectprice(3)'>150-200万</label>
+          <label v-bind:class="{current: price==4}" onclick='selectprice(4)'>200-250万</label>
+          <label v-bind:class="{current: price==5}" onclick='selectprice(5)'>250-300万</label>
+          <label v-bind:class="{current: price==6}" onclick='selectprice(6)'>300-500万</label>
+          <label v-bind:class="{current: price==7}" onclick='selectprice(7)'>500-1000万</label>
+          <label v-bind:class="{current: price==8}" onclick='selectprice(8)'>1000-2000万</label>
+          <label v-bind:class="{current: price==9}"  onclick='selectprice(9)'>2000万以上</label>
+          <label v-bind:class="{current: price==0}" onclick='selectprice(0)'>不限</label>
+        </div>
+      </div>
+      <div class="intention-btn-wrap"><div class="intention-btn" onclick="bindtap01()">下一步</div></div>
+    </div>
+    <div class="box-item" v-bind:class="{current: page02}">
+      <div class="tit">您理想的户型？</div>
+      <div class="box-cont">
+        <div class="price-list">
+          <label v-bind:class="{current: housetype==1}" onclick='selecttype(1)'>一室</label>
+          <label v-bind:class="{current: housetype==2}" onclick='selecttype(2)'>二室</label>
+          <label v-bind:class="{current: housetype==3}" onclick='selecttype(3)'>三室</label>
+          <label v-bind:class="{current: housetype==4}" onclick='selecttype(4)'>四室</label>
+          <label v-bind:class="{current: housetype==5}" onclick='selecttype(5)'>五室及以上</label>
+          <label v-bind:class="{current: housetype==0}" onclick='selecttype(0)'>不限</label>
+        </div>
+      </div>
+      <div class="intention-btn-wrap"><div class="intention-btn" onclick="bindtap02()">下一步</div></div>
+    </div>
+
+    <div class="box-item" v-bind:class="{current: page03}">
+      <div class="tit">您理想的位置？</div>
+      <div class="box-cont">
+        <div class="price-list">
+          <label v-for="v in arealist" v-bind:class="{current: areaid == v.areaid}"  v-on:click="selectarea(v.areaid)">{{v.area}}</label>
+
+        </div>
+      </div>
+      <div class="intention-btn-wrap"><div class="intention-btn" onclick="bindtap03()">下一步</div></div>
+    </div>
+
+    <div class="box-item" v-bind:class="{current: page04}">
+      <div class="tit">房源特色(多选)？</div>
+      <div class="box-cont">
+        <div class="price-list">
+          <label v-for="v in item" v-bind:class="{current: v.checked}" v-on:click="selectitem(v.name)">{{v.name}}</label>
+        </div>
+      </div>
+      <div class="intention-btn-wrap"><div class="intention-btn" onclick="bindtap04()">下一步</div></div>
+    </div>
+
+    <div class="box-item" v-bind:class="{current: page05}">
+      <div class="tit">您的联系方式？</div>
+      <div class="box-cont">
+        <div class="txt-item">
+          <input class="txt" v-bind:value="name" placeholder="请输入您的姓名" name="name"></input>
+        </div>
+        <div class="txt-item">
+          <input class="txt" v-bind:value="telephone" placeholder="请输入您的手机号码" name="telephone"></input>
+        </div>
+      </div>
+      <div class="intention-btn-wrap">
+        <button class="intention-btn">完成</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="intention.js"></script>
+ </body>
+ </html>

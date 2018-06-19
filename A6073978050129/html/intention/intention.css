@@ -1,0 +1,152 @@
+/* pages/intention/intention.wxss */
+page{
+  height:100%;
+}
+.intention_bg{
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  z-index: 1;
+}
+.container{
+  width: 100%;
+  height: 100%;
+}
+form{
+  width: 100%;
+}
+.box-item{
+  display: none;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+  z-index: 5;
+}
+.box-item.current{
+  display: block;
+}
+.iconfont{
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  font-size: 28px;
+  color: #555;
+  width: 30px;
+  height: 30px;
+  text-align: center;
+  line-height: 30px;
+  z-index: 99;
+}
+.tit{
+  width: 100%;
+  height: 50px;
+  line-height: 50px;
+  text-align: center;
+  font-size: 18px;
+  color: #333;
+  padding: 10px 0 0 0;
+  position: fixed;
+  left: 0;
+  top: 75px;
+  z-index: 9;
+  margin: 0 auto;
+}
+.intention-btn-wrap{
+  width: 100%;
+  height: 40px;
+  padding: 10px 0;
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  z-index: 9;
+}
+.intention-btn{
+  width: 86%;
+  height: 40px;
+  color: #fff;
+  background: #5682f0;
+  font-size: 14px;
+  line-height: 40px;
+  text-align: center;
+  border-radius: 5px;
+  margin: 0 auto;
+}
+.box-cont{
+  display: block;
+  width: 100%;
+  padding: 60px 0;
+}
+.price-list{
+  display: block;
+  width: 86%;
+  margin: 0 auto;
+  padding: 10px;
+}
+.price-list label{
+  display: inline-block;
+  width: 45%;
+  height: 44px;
+  background: #fff;
+  border: 1px solid #ddd;
+  font-size: 14px;
+  text-align: center;
+  line-height: 42px;
+  overflow: hidden;
+  color: #656565;
+  margin: 8px 0;
+  box-sizing: border-box;
+  -webkit-box-sizing:border-box;
+  border-radius: 22px;
+}
+.price-list label:nth-child(2n){
+  margin-left: 8%;
+}
+.price-list label.current{
+  border: 1px solid #5f83e9;
+  background: #5f83e9;
+  color: #fff;
+}
+.location_txt{
+  width: 86%;
+  height: 50px;
+  box-sizing: border-box;
+  padding: 0 10px;
+  margin: 0 auto;
+  background: #fff;
+  border-radius: 5px;
+  border: 1px solid #ddd;
+}
+.location_txt input{
+  font-size: 16px;
+  color: #5682f0;
+  height: 48px;
+  line-height: 48px;
+  text-align: center;
+}
+.txt-item{
+  width: 86%;
+  height: 40px;
+  margin: 20px auto;
+  background: #fff;
+  box-sizing: border-box;
+  font-size: 16px;
+  color: #5682f0;
+  border-radius: 5px;
+  line-height: 38px;
+  border: 1px solid #ddd;
+}
+.txt-item:first-child{
+  margin-top: 40px
+}
+.txt-item .txt{
+  width: 100%;
+  height: 38px;
+  background: #fff;
+  box-sizing: border-box;
+  padding: 0 10px;
+  font-size: 14px;
+  color: #5682f0;
+  border-radius: 5px;
+  line-height: 38px;
+}

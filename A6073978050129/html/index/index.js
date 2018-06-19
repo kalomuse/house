@@ -39,7 +39,7 @@ function bindViewintention() {
 }
 
 apiready = function() {
-  var vue = new Vue({
+  vue = new Vue({
     el: '.container',
     data: {
       website: website,
@@ -156,7 +156,6 @@ $(function () {  
   glo.post('/api/index/getRemhouses', { regionid: vue.regionid }, function (res) {
       vue.houselist =  res.data;
   });
-
   //获取购房意向
   glo.post('/api/purpose/getPurpose',
   {
