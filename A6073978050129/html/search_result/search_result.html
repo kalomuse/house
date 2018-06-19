@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="search_result.css" />
+</head>
+<body>
+  <div class="container mt-85">
+    <header class="header" id="header">  <!-- 2 -->
+      <a class="go-back" onclick="api.closeWin()"></a>
+      <h2 class="web-tit">搜索结果</h2>
+    </header>
+    <!--search_result.wxml-->
+    <!--搜索框  start-->
+
+    <form class="search-wrap">
+      <div class='fl'>
+        <icon class="iconfont icon-fangdajing"></icon>
+        <input placeholder="搜索楼盘小区" v-bind:value="keyword" name="keyword"/>
+      </div>
+      <button class="fl search-btn">搜索</button>
+    </form>
+    <!--搜索框  end-->
+
+    <!--楼盘列表  start-->
+    <div class="pro-list" v-if="houselist.length != 0">
+      <div class="pro-item" v-for="v in houselist" v-on:click="bindViewproview(v.id)">
+        <div class="pro-img"><img :src="website + v.first_img" class="slide-image" style="width:100%;"></div>
+        <div class="pro-name">
+          <div class="fl pro-tit">{{v.title}}</div>
+          <div class="fr pro-priec" v-if="v.price">{{v.price}}<icon>元/平</icon></div>
+          <div class="fr pro-priec" v-else>价格待定</div>
+        </div>
+        <div class="pro-address">{{v.address}}</div>
+      </div>
+
+    </div>
+    <!--楼盘列表  end-->
+    <div class="no-data" wx:else>没有相关数据</div>
+  </div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="search_result.js"></script>
+ </body>
+ </html>
