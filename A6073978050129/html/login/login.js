@@ -77,18 +77,19 @@ else  if(verify_code==''){
   }
   else{
     glo.post('/api/user/appLogin',{
-      mobile:phone,
-      code:verify_code
+      mobile: phone,
+      code: verify_code
     },function(res){
+      glo.echo(res);
       if(res.Code==1){
-        $api.setStorage('token', res.data);
-      }else {
         api.execScript({
             name: 'main',
             script: "goSalelist()"
         });
         api.closeWin();
-        //glo.alert("验证码有误")
+
+      }else {
+        glo.alert("验证码有误")
       }
       // glo.echo(res);
     }
