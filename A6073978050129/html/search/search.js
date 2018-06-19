@@ -1,40 +1,39 @@
-//vue初始事例
+function bindClear_history() {
+  vue.searchlist = [];
+  $api.setStorage('searchlist', []);
+}
+function SearchHouse() {
+  var keyword = $('#keyword').val();
+  var searchlist = vue.searchlist;
+  if(!keyword) {
+    return glo.alert('请输入小区名称，如塞纳蓝湾');
+  }
+  if(searchlist.length >= 3) {
+    searchlist.pop();
+    searchlist.unshift({keyword:keyword})
+  } else {
+    searchlist.unshift({keyword:keyword})
+  }
+  $api.setStorage('searchlist', searchlist);
+  glo.open_win('../search_result/search_result', {keyword:keyword});
+}
+
 var vue = new Vue({
   el: '.container',
   data: {
     website: website,
-    searchlist: {keyword:'caonima', keyword:'caonima2'},
+    searchlist: [],
+  },
+  methods:{
+    bindViewsearch_result: function(keyword) {
+      glo.open_win('../search_result/search_result', {keyword:keyword});
+    },
   }
 })
-
-//点击事例，navigateTo对应open_win，redirectTo对应open_frame
-function bindViewsearch() {
-  glo.open_win('../search/search');
-}
-
-//楼盘事件处理函数
-function bindViewpro() {
-  glo.open_frame('../main');
-}
-//经济人事件处理函数
-function bindViewsale() {
-  glo.open_win('../salelist/salelist');
-}
-//资讯事件处理函数
-function bindViewnews() {
-  glo.open_frame('../news/news');
-}
-//房价事件处理函数
-function bindViewprice() {
-  glo.open_frame('../real_search/real_search');
-}
 
 apiready = function() {
   //初始化必须调用
   glo.init();
-
-  //post事例
-  glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
-      vue.region =  res.data.area;
-  });
+  var searchlist = $api.getStorage('searchlist');
+  vue.searchlist = searchlist? searchlist: [];
 };
