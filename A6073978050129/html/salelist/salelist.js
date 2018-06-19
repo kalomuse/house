@@ -1,3 +1,13 @@
+//经济人事件处理函数
+function bindViewsale() {
+  //glo.open_win('salelist/salelist');
+  glo.open_win('../sale/sale');
+}
+//查看客户事件处理函数
+function bindViewuserlist() {
+  //glo.open_win('salelist/salelist');
+  glo.open_win('../userlist/userlist');
+}
 // pages/salelist/salelist.js
 var vue = new Vue({
   el: '.container',
@@ -39,13 +49,3 @@ var vue = new Vue({
       });
     })
   };
-  //经济人事件处理函数
-  function bindViewsale() {
-    //glo.open_win('salelist/salelist');
-    glo.open_win('sale/sale');
-  }
-  //查看客户事件处理函数
-  function bindViewsale() {
-    //glo.open_win('salelist/salelist');
-    glo.open_win('userlist/userlist');
-  }

@@ -2,117 +2,72 @@
 <html>
 <head>
 <meta charset="utf-8">
-<meta name="divport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
   <link rel="stylesheet" type="text/css" href="../../css/api.css" />
   <link rel="stylesheet" type="text/css" href="../../css/common.css" />
   <link rel="stylesheet" type="text/css" href="sale.css" />
 </head>
 <body>
-
-<div class="container">
-  <form class="sale-wrap" bindsubmit='PostAgent'>
-    <div class="sale-tit">
-      <i class="iconfont icon-gerenxinxi3"></i>
-      个人信息
-    </div>
-    <div class="item">
-      <input class="txt" placeholder="真实姓名" name="name"></input>
-      <div class="uploadimg-btn">
-        <image src="{{showimg}}" mode="widthFix" bindtap='getHeadimg'></image>
+  <div class="container mt-65">
+    <header class="header" id="header">  <!-- 2 -->
+      <a class="go-back" onclick="api.closeWin()"></a>
+      <h2 class="web-tit">经纪人注册</h2>
+    </header>
+    <!--pages/sale/sale.wxml-->
+      <div class="sale-wrap" >
+        <div class="sale-tit">
+          <icon class="iconfont icon-gerenxinxi3"></icon>
+          个人信息
+        </div>
+        <div class="item">
+          <input class="txt" placeholder="真实姓名" id="name" name="name" v-bind:value="agentinfo.name"/>
+          <div class="uploadimg-btn">
+            <img :src="showimg" onclick='getHeadimg()' />
+          </div>
+        </div>
+        <div class="item">
+          <input class="txt" placeholder="微信号"  id="wechat" v-bind:value='agentinfo.wechat' name="wechat" ></input>
+        </div>
+        <div class="item">
+          <select id="cardtype" class="picker-txt">
+            <option v-for="v in array">{{v}}</option>
+          </select>
+        </div>
+        <div class="item">
+          <input class="txt" placeholder="证件号码" id="card" name="card"  v-bind:value='agentinfo.card'></input>
+        </div>
+        <div class="item">
+          <input class="txt txt-arrow" name="address" placeholder="常住地" v-bind:value="province + '-' + city + '-' +  county" onclick="initArea()"></input>
+          <icon class="iconfont icon-jiantou1"></icon>
+        </div>
+        <div class="sale-tit">
+          <icon class="iconfont icon-yinhangqia"></icon>
+          银行卡
+        </div>
+        <!-- <div class="item">
+          <input class="txt" placeholder="开户行"></input>
+        </div> -->
+        <div class="item">
+          <select  class="picker-txt">
+            <option v-for="v in bankarray">{{v}}</option>
+          </select>
+        </div>
+        <div class="item">
+          <input class="txt" placeholder="银行账号" name="account" id="account" v-bind:value='agentinfo.account'></input>
+        </div>
+        <button class="sub-btn" onclick="PostAgent()">提  交</button>
+        <div class="agreement-wrap">
+            <label class="checkbox-already">
+              <input type="checkbox" name='agreement1' value="1" id="agreement" class="checkbox"/>我已阅读
+            </label><icon onclick="binddivagreement">经济人协议</icon>
+        </div>
       </div>
-    </div>
-    <div class="item">
-      <input class="txt" placeholder="联系方式" name="telephone" bindinput='TelephoneInputEvent'></input>
-    </div>
-    <div class="item">
-      <input class="txt txt-code" placeholder="验证码" name="code"></input>
-      <button class="code-send-btn" bindtap="SendCode">{{codemsg}}</button>
-    </div>
-    <div class="item">
-      <picker class="picker-txt" bindchange="bindPickerCertificates" value="{{index}}" name="cardtype" range="{{array}}" >
-        <div class="picker">
-         证件类型 {{array[index]}}
-        </div>
-        <icon class="iconfont icon-jiantou1"></icon>
-      </picker>
-    </div>
-    <div class="item">
-      <input class="txt" placeholder="证件号码" name="card"></input>
-    </div>
-    <div class="item">
-      <input class="txt txt-arrow" name="address" placeholder="常住地" value="常住地: {{province}}{{city}}{{county}}" focus="{{focus}}" bindfocus="open"></input>
-      <icon class="iconfont icon-jiantou1"></icon>
-    </div>
-    <div class="sale-tit">
-      <i class="iconfont icon-yinhangqia"></i>
-      银行卡
-    </div>
-    <!-- <div class="item">
-      <input class="txt" placeholder="开户行"></input>
-    </div> -->
-    <div class="item">
-      <picker class="picker-txt" bindchange="bindPickerBank" name="bank" value="{{index1}}" range="{{bankarray}}" >
-        <div class="picker">
-         开户行 {{bankarray[index1]}}
-        </div>
-        <icon class="iconfont icon-jiantou1"></icon>
-      </picker>
-    </div>
-    <div class="item">
-      <input class="txt" placeholder="银行账号" name="account"></input>
-    </div>
-    <button class="sub-btn" form-type='submit'>提  交</button>
-    <div class="agreement-wrap">
-      <checkbox-group name='agreement'>
-        <label class="checkbox-already">
-          <checkbox name='agreement1' value="1"/>我已阅读
-        </label><icon bindtap="binddivagreement">经济人协议</icon>
-      </checkbox-group>
-    </div>
-  </form>
-</div>
-<div wx:if="{{condition}}" class="citypicker">
-  <picker-div indicator-style="height: 50px;" style="width: 100%; height: 300px;" value="{{value}}" bindchange="bindChange" class="citybody">
-    <div class="cityheader">
-      <div bindtap="open" class="city-cancel">取消</div>
-      <div bindtap="open" class="city-true">确定</div>
-    </div>
-    <picker-div-column>
-      <div wx:for="{{provinces}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</div>
-    </picker-div-column>
-    <picker-div-column>
-      <div wx:for="{{citys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</div>
-    </picker-div-column>
-    <picker-div-column>
-      <div wx:for="{{countys}}" wx:key="item" style="line-height: 50px;padding-left:10px;">{{item}}</div>
-    </picker-div-column>
-  </picker-div>
-</div>
+  </div>
 
-<!--底部导航  start-->
-<div class="nav-wrap">
-  <div onclick="binddivpro()" class="nav-item">
-    <div class="iconfont icon-loupan"></div>
-    <div>楼盘</div>
-  </div>
-  <div onclick="binddivsale()" class="nav-item">
-    <div class="iconfont icon-xiaoshou"></div>
-    <div>经纪人</div>
-  </div>
-  <div class="nav-item  active">
-    <div class="iconfont icon-zixun"></div>
-    <div>资讯</div>
-  </div>
-  <div onclick="binddivprice()" class="nav-item">
-    <div class="iconfont icon-fangjiameiyuanfangzimianxing"></div>
-    <div>查房价</div>
-  </div>
-</div>
-<!--底部导航  end-->
-<script type="text/javascript" src="../../script/api.js"></script>
-<script type="text/javascript" src="../../script/jquery.min.js"></script>
-<script src="../../script/vue.js"></script>
-<script type="text/javascript" src="../../script/global.js"></script>
-<script type="text/javascript" src="sale.js"></script>
-</body>
-</html>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="sale.js"></script>
+ </body>
+ </html>

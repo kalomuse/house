@@ -64,6 +64,8 @@
   background: #fff;
 }
 .picker-txt{
+  background: white;
+  border: white;
   width: 100%;
   height: 30px;
   font-size: 14px;
@@ -96,7 +98,6 @@
 .checkbox-already{
   height: 80px;
   font-size: 12px;
-  line-height: 24px;
   color: #999;
 }
 .agreement-wrap icon{
@@ -111,7 +112,10 @@
 .checkbox-already .wx-checkbox-input.wx-checkbox-input-checked{
   background: #007aff;
 }
-checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
+.checkbox {
+  margin-top: 15px;
+}
+.checkbox .wx-checkbox-input.wx-checkbox-input-checked::before{
   width: 10px;
   height: 10px;
   color: #fff;
