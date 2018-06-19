@@ -83,91 +83,55 @@ apiready = function() {
           }
       });
   });
-  //定位
-  var bMap = api.require('bMap');
-bMap.getLocationServices(function(ret, err) {
-    if (ret.enable) {
-      bMap.getLocation({
-    accuracy: '100m',
-    autoStop: true,
-    filter: 1
-}, function(ret, err) {
-    if (ret.status) {
-        //alert(JSON.stringify(ret));
-         $api.setStorage('lat', ret.lat);
-         $api.setStorage('lon', ret.lon);
-        // alert($api.getStorage("lat"));
-        bMap.stopLocation();
-    } else {
-        alert(err.code);
-    }
-});
-    } else {
-        alert("未开启定位功能！");
-    }
-});
 
-$(function () {  
-  var latlon = null;  
-  //ajax获取用户所在经纬度  
-  latlon = $api.getStorage('lat') + "," + $api.getStorage('lon'); 
-  //latlon = 30.804372+","+120.934912; 
-  //ajax根据经纬度获取省市区  
-  $.ajax({  
-      type: "POST",  
-      dataType: "jsonp",  
-      url: 'http://api.map.baidu.com/geocoder/v2/?ak=zYNPUG3MAwjKNlykePjz9aG7&callback=renderReverse&location=' + latlon + '&output=json&pois=0',  
-      success: function (json) {  
-        if (json.status == 0) {  
-          vue.region=json.result.addressComponent.district;
-          var city=json.result.addressComponent.district;
-          // console.log(json);  
-          //  alert(json.result.addressComponent.district);
-          $.ajax({ 
-            type: "POST", 
-            dataType: "json", 
-            url:'https://house.jiashanquan.top'+'/api/region/getRegionid',
-            data:{region:json.result.addressComponent.district},
-            success:function(json){
-              vue.regionid=json.data;
-              $('.index-location-btn').html(city+'<div class="iconfont icon-jikediancanicon13"></div>');
-              //alert(json.result.addressComponent.district);
-            }
-          });  
-        }  
-      }  
-    });  
-});  
-
-
-
-  if ($api.getStorage('regionid')){
+  if ($api.getStorage('regionid')) {
+    vue.region =  $api.getStorage('region');
     vue.regionid =  $api.getStorage('regionid');
+  } else {
+    //定位
+    var bMap = api.require('bMap');
+    bMap.getLocationServices(function(ret, err) {
+      if (ret.enable) {
+        bMap.getLocation({
+            accuracy: '100m',
+            autoStop: true,
+            filter: 1
+        }, function(ret, err) {
+            if (ret.status) {
+                $api.setStorage('lat', ret.lat);
+                $api.setStorage('lon', ret.lon);
+                var latlon = $api.getStorage('lat') + "," + $api.getStorage('lon'); 
+                $.ajax({  
+                  type: "POST",  
+                  dataType: "jsonp",  
+                  url: 'http://api.map.baidu.com/geocoder/v2/?ak=zYNPUG3MAwjKNlykePjz9aG7&callback=renderReverse&location=' + latlon + '&output=json&pois=0',  
+                  success: function (json) {  
+                    if (json.status == 0) {  
+                      vue.region=json.result.addressComponent.district;
+                      $api.setStorage('region', vue.region);
+                      glo.post('/api/region/getRegionid', {region:json.result.addressComponent.district}, function() {
+                        $api.setStorage('region', json.data);
+                        vue.regionid = json.data;
+                      });
+                    }  
+                  }
+                });  
+                bMap.stopLocation();
+            } else {
+                alert(err.code);
+            }
+        });
+      } else {
+          alert("未开启定位功能！");
+      }
+    });
   }
-  $api.setStorage('regionid', vue.regionid);
-  //glo.echo(vue.regionid);
-  //获取地理信息
-  glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
-      vue.region =  res.data.area;
-  });
 
-
- //获取推荐楼盘
+  //获取推荐楼盘
   glo.post('/api/index/getRemhouses', { regionid: vue.regionid }, function (res) {
       vue.houselist =  res.data;
   });
-  //获取购房意向
-  glo.post('/api/purpose/getPurpose',
-  {
-    uid: $api.getStorage('userid'),
-    areaid: $api.getStorage('regionid')
-  }, function (res) {
-    if(res.data.Code){
-      vue.purpose = res.data.title;
-      vue.purposeid = res.data.id;
-    };
 
-  });
   //获取banner图
   var data = {regionid: $api.getStorage('regionid')};
   glo.post('/api/index/getBanner', data, function(res) {
