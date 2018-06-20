@@ -64,7 +64,8 @@ function initArea() {
         $api.setStorage('regionid', countyid);
         api.execScript({
             name: 'main',
-            script: 'switchCity("' + county + '", "' + countyid + '")'
+            //script: 'switchCity("' + county + '", "' + countyid + '")',
+            script: 'getData()'
         });
       } else {
           alert(JSON.stringify(err));

@@ -39,14 +39,8 @@ function bindViewintention() {
 function goSalelist() {
   glo.open_frame('salelist/salelist');
 }
-function switchCity(region, regionid) {
-  alert(region);
-  alert(regionid);
-  vue.region = region;
-  vue.regionid = regionid;
-}
-apiready = function() {
 
+apiready = function() {
   vue = new Vue({
     el: '.container',
     data: {
@@ -134,7 +128,6 @@ apiready = function() {
       }
     });
   }
-
   //获取推荐楼盘
   glo.post('/api/index/getRemhouses', { regionid: vue.regionid }, function (res) {
       vue.houselist =  res.data;
@@ -167,3 +160,6 @@ apiready = function() {
     glo.hide_progress();
   });
 };
+function getData() {
+  location.reload();
+}
