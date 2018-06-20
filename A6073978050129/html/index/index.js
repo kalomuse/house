@@ -40,6 +40,7 @@ function goSalelist() {
   glo.open_frame('salelist/salelist');
 }
 apiready = function() {
+
   vue = new Vue({
     el: '.container',
     data: {

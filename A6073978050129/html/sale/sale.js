@@ -35,16 +35,70 @@ apiready = function() {
   //初始化必须调用
   glo.init();
   //post事例
+  has_submit = 0;
   glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
       vue.region =  res.data.area;
   });
 };
 
+function getHeadimg() {
+  //第一步选着从哪里获取图片
+  api.confirm({
+      title: "小提示",
+      msg: "你想要从哪里选择图片呢？",
+      buttons: ["优雅自拍","相册收藏","取消"]
+  },function(ret1,err1){
+      if(ret1.buttonIndex==1){
+          sourceType = 'camera';
+      }else if(ret1.buttonIndex==2){
+          sourceType = 'album';
+      }else if(ret1.buttonIndex==3){
+          return;
+      }
+      //第二步获取照片
+      api.getPicture({
+          sourceType: sourceType,
+          encodingType: 'jpg',
+          mediaValue: 'pic',
+          destinationType: 'url',
+          allowEdit: true,
+          quality: 50,
+          targetWidth: 100,
+          targetHeight: 100,
+          saveToPhotoAlbum: false
+        }, function(ret, err) {
+            if (ret) {
+              api.ajax({
+                  url: website + '/api/agent/postHeadimg',
+                  method: 'post',
+                  data: {
+                      files: {
+                          file: ret.data
+                      }
+                  }
+              }, function(ret, err) {
+                  if (ret) {
+                      vue.headimg = ret.file_path;
+                      vue.showimg = website + ret.file_path;
+                  } else {
+                      api.alert({ msg: JSON.stringify(err) });
+                  }
+              });
+            } else {
+                alert(JSON.stringify(err));
+            }
+        });
+
+  });
+}
+
 function PostAgent() {
+  if(has_submit)
+    return false;
   var status = 1;
-  var agreement = $('#agreement').val();
+  var agreement = $('#agreement').is(":checked");
   var name = $('#name').val();
-  var headimg = $('#headimg').val();
+  var headimg = vue.headimg;
   var wechat = $('#wechat').val();
   var cardtype = $('#cardtype').val();
   var card = $('#card').val();
@@ -55,6 +109,7 @@ function PostAgent() {
     status = 0;
     glo.alert('请先阅读并同意《经纪人协议》');
   }
+
   if (status == 1 && !name){
     status = 0;
     glo.alert('请填写真实姓名');
@@ -70,8 +125,11 @@ function PostAgent() {
       'account': account
   };
   if(status==1){
+    has_submit = 1;
     glo.post('/api/agent/postAgentForApp', data, function (res) {
+        has_submit = 0;
         if(res.Code) {
+          $api.setStorage('is_agent', 1);
           glo.echo('提交完成')
           setTimeout(function () {
             glo.open_win('../salelist/salelist');

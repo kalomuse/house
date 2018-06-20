@@ -75,8 +75,13 @@ else  if(verify_code==''){
       code: verify_code
     },function(res){
       if(res.Code==1){
-        $api.setStorage('token', res.data);
-        glo.open_frame(api.pageParam.from);
+        $api.setStorage('is_agent', res.data.is_agent);
+        $api.setStorage('token', res.data.token);
+        if(res.data.is_agent) {
+          api.closeWin();
+        } else {
+          glo.open_frame(api.pageParam.from);
+        }
       } else {
         glo.alert("验证码有误")
       }

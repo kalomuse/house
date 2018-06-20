@@ -25,7 +25,6 @@
   padding: 8px 0 4px 0;
   border-bottom: 1px solid #ddd;
   position: relative;
-  z-index: 1;
 }
 .sale-wrap .item .uploadimg-btn{
   width: 60px;
@@ -37,7 +36,7 @@
   right: 0;
   overflow: hidden;
 }
-.sale-wrap .item .uploadimg-btn image{
+.sale-wrap .item .uploadimg-btn img{
   display: block;
   width: 100%;
 }

@@ -26,7 +26,7 @@
           </div>
         </div>
         <div class="item">
-          <input class="txt" placeholder="微信号"  id="wechat" v-bind:value='agentinfo.wechat' name="wechat" ></input>
+          <input class="txt" placeholder="微信号"  id="wechat" v-bind:value='agentinfo.wechat' name="wechat" />
         </div>
         <div class="item">
           <select id="cardtype" class="picker-txt">
@@ -48,7 +48,7 @@
           <input class="txt" placeholder="开户行"></input>
         </div> -->
         <div class="item">
-          <select  class="picker-txt">
+          <select  class="picker-txt" id="bank">
             <option v-for="v in bankarray">{{v}}</option>
           </select>
         </div>
