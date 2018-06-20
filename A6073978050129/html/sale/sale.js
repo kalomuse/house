@@ -32,13 +32,38 @@ function bindViewagreement() {
 }
 
 apiready = function() {
+  has_submit = 0;
   //初始化必须调用
   glo.init();
-  //post事例
-  has_submit = 0;
-  glo.post('/api/region/setRegion', { regionid: vue.regionid }, function (res) {
-      vue.region =  res.data.area;
+  //是否为经纪人
+  glo.post('/api/agent/isAgent', {}, function (res) {
+    if (res.Code) {
+      vue.telephone = res.data.telephone;
+      vue.showimg = website + res.data.headimg;
+      //获取地理信息
+      glo.post('/api/region/setRegion', {regionid: $api.getStorage('regionid')}, function(res) {
+          vue.county = res.data.area;
+          vue.city = res.data.city;
+          vue.province = res.data.province;
+      });
+
+      $('#cardtype option').each(function() {
+        if($(this).html() == res.data.card_type) {
+            $(this).attr('selected', 'selected');
+        }
+      })
+
+      $('#bank option').each(function() {
+        if($(this).html() == res.data.bank) {
+            $(this).attr('selected', 'selected');
+        }
+      })
+
+      vue.agentinfo =  res.data;
+      vue.countyid = res.data.region;
+    }
   });
+
 };
 
 function getHeadimg() {
