@@ -148,7 +148,11 @@ var glo = {
   logout: function() {
     var self = this;
     $api.rmStorage('token');
-    glo.alert('注销成功');
+    api.toast({
+        msg : '注销成功',
+        duration : 2000,
+        location : 'bottom'
+    });
     location.reload();
     /*
     glo.get('/mobile/login/logout', function() {

@@ -40,6 +40,9 @@ function bindViewsale() {
 function bindViewuserlist() {
   glo.open_win('../userlist/userlist');
 }
+function reload() {
+  location.reload();
+}
 
 apiready = function() {
   //初始化必须调用
