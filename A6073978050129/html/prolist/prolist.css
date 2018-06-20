@@ -2,7 +2,7 @@
 
 .pro-list{
   width: 100%;
-  padding: 100px 10px;
+  padding: 65px 10px;
   box-sizing: border-box;
   position: relative;
   z-index: 1;
@@ -142,7 +142,7 @@
 }
 .pop-wrap .pop-choice-list label.current{
   background: #5682f0;
-  color: #fff;
+  color: #fff !important;
   border: 1px solid #5682f0;
 }
 .pop-btn-wrap{

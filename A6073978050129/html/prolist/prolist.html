@@ -10,85 +10,101 @@
 </head>
 <body>
     <div class="container mt-65">
-      <header class="header" id="header">  <!-- 2 -->
+      <header class="header" id="header">
+        <a class="go-back" onclick="api.closeWin()"></a>  <!-- 2 -->
     		<h2 class="web-tit">楼盘</h2>
     	</header>
-    <div class="screen-wrap">
-      <div class="scree-item" bindtap="bindPrice">价格<em class="iconfont icon-jikediancanicon13"></em></div>
-      <div class="scree-item" bindtap="bindType">楼型<em class="iconfont icon-jikediancanicon13"></em></div>
-      <div class="scree-item" bindtap="bindMore">状态<em class="iconfont icon-jikediancanicon13"></em></div>
-    </div>
-    <!--价格弹出层  start-->
-    <div class="pop-wrap-bg pop-show">
-      <form class="pop-wrap">
-        <div class="pop-item">
-          <div class="pop-tit">单价(元/平)</div>
-          <div class="txt-wrap">
-            <div class="txt"><input type='number' placeholder="最低价" name='pmin' value='{{pmin}}'></input></div>
-            <i></i>
-            <div class="txt"><input type='number' placeholder="最高价" name='pmax' value='{{pmax}}'></input></div>
+      <div class="screen-wrap">
+        <div class="scree-item" bindtap="bindPrice">价格<em class="iconfont icon-jikediancanicon13"></em></div>
+        <div class="scree-item" bindtap="bindType">楼型<em class="iconfont icon-jikediancanicon13"></em></div>
+        <div class="scree-item" bindtap="bindMore">状态<em class="iconfont icon-jikediancanicon13"></em></div>
+      </div>
+      <!--价格弹出层  start-->
+      <div class="pop-wrap-bg">
+        <form class="pop-wrap">
+          <div class="pop-item">
+            <div class="pop-tit">单价(元/平)</div>
+            <div class="txt-wrap">
+              <div class="txt"><input type='number' placeholder="最低价" name='pmin' value='{{pmin}}'></input></div>
+              <i></i>
+              <div class="txt"><input type='number' placeholder="最高价" name='pmax' value='{{pmax}}'></input></div>
+            </div>
+            <div class="pop-choice-list pop-choice-list02">
+                <label data-pricenum="1" class="checkbox-already" data-pmin="0" data-pmax="6000">6000以下</label>
+                <label data-pricenum="2" class="checkbox-already" data-pmin="6000" data-pmax="8000">6000-8000</label>
+                <label data-pricenum="3" class="checkbox-already" data-pmin="8000" data-pmax="10000">8000-10000</label>
+                <label data-pricenum="4" class="checkbox-already" data-pmin="10000" data-pmax="15000">10000-15000</label>
+                <label data-pricenum="5" class="checkbox-already" data-pmin="15000" data-pmax="20000">15000-20000</label>
+                <label data-pricenum="6" class="checkbox-already" data-pmin="20000" data-pmax="25000">20000-25000</label>
+                <label data-pricenum="7" class="checkbox-already" data-pmin="25000" data-pmax="30000">25000-30000</label>
+                <label data-pricenum="8" class="checkbox-already" data-pmin="30000" data-pmax="">30000以上</label>
+            </div>
           </div>
-          <div class="pop-choice-list pop-choice-list02">
-              <label data-pricenum="1" class="checkbox-already" data-pmin="0" data-pmax="6000">6000以下</label>
-              <label data-pricenum="2" class="checkbox-already" data-pmin="6000" data-pmax="8000">6000-8000</label>
-              <label data-pricenum="3" class="checkbox-already" data-pmin="8000" data-pmax="10000">8000-10000</label>
-              <label data-pricenum="4" class="checkbox-already" data-pmin="10000" data-pmax="15000">10000-15000</label>
-              <label data-pricenum="5" class="checkbox-already" data-pmin="15000" data-pmax="20000">15000-20000</label>
-              <label data-pricenum="6" class="checkbox-already" data-pmin="20000" data-pmax="25000">20000-25000</label>
-              <label data-pricenum="7" class="checkbox-already" data-pmin="25000" data-pmax="30000">25000-30000</label>
-              <label data-pricenum="8" class="checkbox-already" data-pmin="30000" data-pmax="">30000以上</label>
+          <div class="pop-btn-wrap">
+            <button class="cancel-btn">取消</button>
+            <button class="sub-btn">确定</button>
           </div>
-        </div>
-        <div class="pop-btn-wrap">
-          <button class="cancel-btn">取消</button>
-          <button class="sub-btn" onclick="searchhouse()">确定</button>
-        </div>
-      </form>
-    </div>
-    <!--价格弹出层  end-->
-    <!--房型弹出层  start-->
-    <div class="pop-wrap-bg">
-      <form class="pop-wrap">
-        <div class="pop-item">
-          <div class="pop-choice-list pop-choice-list01">
-              <label data-typenum="1" class="checkbox-already" data-type="低层">低层</label>
-              <label data-typenum="2" class="checkbox-already" data-type="多层">多层</label>
-              <label data-typenum="3" class="checkbox-already" data-type="高层">高层</label>
-              <label data-typenum="4" class="checkbox-already" data-type="复式">复式</label>
-              <label data-typenum="5" class="checkbox-already" data-type="排屋">排屋</label>
-              <label data-typenum="6" class="checkbox-already" data-type="别墅">别墅</label>
+        </form>
+      </div>
+      <!--价格弹出层  end-->
+      <!--房型弹出层  start-->
+      <div class="pop-wrap-bg">
+        <form class="pop-wrap">
+          <div class="pop-item">
+            <div class="pop-choice-list pop-choice-list01">
+                <label data-typenum="1" class="checkbox-already" data-type="低层">低层</label>
+                <label data-typenum="2" class="checkbox-already" data-type="多层">多层</label>
+                <label data-typenum="3" class="checkbox-already" data-type="高层">高层</label>
+                <label data-typenum="4" class="checkbox-already" data-type="复式">复式</label>
+                <label data-typenum="5" class="checkbox-already" data-type="排屋">排屋</label>
+                <label data-typenum="6" class="checkbox-already" data-type="别墅">别墅</label>
+            </div>
           </div>
-        </div>
-        <div class="pop-btn-wrap">
-          <button class="cancel-btn">取消</button>
-          <button class="sub-btn">确定</button>
-        </div>
-      </form>
-    </div>
-    <!--房型弹出层  end-->
-
-    <!--更多弹出层  start-->
-
-    <div class="pop-wrap-bg">
-      <form class="pop-wrap">
-        <div class="pop-item">
-          <div class="pop-tit">状态</div>
-          <div class="pop-choice-list pop-choice-list03">
-              <label data-statusnum="1" class="checkbox-already" data-status="待售">待售</label>
-              <label data-statusnum="2" class="checkbox-already" data-status="期房">期房</label>
-              <label data-statusnum="3" class="checkbox-already" data-status="现房">现房</label>
-              <label data-statusnum="4" class="checkbox-already" data-status="尾房">尾房</label>
+          <div class="pop-btn-wrap">
+            <button class="cancel-btn">取消</button>
+            <button class="sub-btn">确定</button>
           </div>
-        </div>
-        <div class="pop-btn-wrap">
-          <button class="cancel-btn">取消</button>
-          <button class="sub-btn">确定</button>
-        </div>
-      </form>
-    </div>
+        </form>
+      </div>
+      <!--房型弹出层  end-->
 
-    <!--更多弹出层  end-->
+      <!--更多弹出层  start-->
 
+      <div class="pop-wrap-bg">
+        <form class="pop-wrap">
+          <div class="pop-item">
+            <div class="pop-tit">状态</div>
+            <div class="pop-choice-list pop-choice-list03">
+                <label data-statusnum="1" class="checkbox-already" data-status="待售">待售</label>
+                <label data-statusnum="2" class="checkbox-already" data-status="期房">期房</label>
+                <label data-statusnum="3" class="checkbox-already" data-status="现房">现房</label>
+                <label data-statusnum="4" class="checkbox-already" data-status="尾房">尾房</label>
+            </div>
+          </div>
+          <div class="pop-btn-wrap">
+            <button class="cancel-btn">取消</button>
+            <button class="sub-btn">确定</button>
+          </div>
+        </form>
+      </div>
+
+      <!--更多弹出层  end-->
+
+      <!--楼盘列表  start-->
+      <div class="pro-list" v-if="houselist">
+        <div class="pro-item" v-for="v in houselist" v-on:click="bindViewproview(v.id)" data-id="{{v.id}}">
+          <div class="pro-img"><img :src="website + v.first_img" class="slide-image"/></div>
+          <div class="pro-name">
+            <div class="fl pro-tit">{{v.title}}</div>
+            <div class="fr pro-priec" v-if="v.price">{{v.price}}<icon>元/平</icon></div>
+            <div class="fr pro-priec" v-else>价格待定</div>
+          </div>
+          <div class="pro-address">{{v.address}}</div>
+        </div>
+
+      </div>
+      <!--楼盘列表  end-->
+      <div class="no-data" v-else>没有相关数据</div>
 
   </div>
 
