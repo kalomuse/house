@@ -86,7 +86,7 @@ apiready = function() {
       });
   });
 
-  if ($api.getStorage('regionid')) {
+  if ($api.getStorage('regionid') && $api.getStorage('region') != 'undefined') {
     vue.region =  $api.getStorage('region');
     vue.regionid =  $api.getStorage('regionid');
   } else {
@@ -134,7 +134,7 @@ apiready = function() {
   });
 
   //获取banner图
-  var data = {regionid: $api.getStorage('regionid')};
+  var data = {regionid: vue.regionid};
   glo.post('/api/index/getBanner', data, function(res) {
     $('.banner').css('height', api.winWidth * 0.433);
     var img = [];

@@ -136,11 +136,9 @@ var glo = {
     });
   },
   clear: function() {
-    api.execScript({
-        name: 'root',
-        script: 'closeSideNav()'
-    });
-
+    $api.rmStorage('region');
+    $api.rmStorage('regionid');
+    $api.rmStorage('token');
     api.toast({
         msg : '清除成功',
         duration : 2000,
@@ -149,11 +147,9 @@ var glo = {
   },
   logout: function() {
     var self = this;
-    $api.rmStorage('user_id');
-    $api.rmStorage('uname');
-    $api.rmStorage('head_pic');
-    $api.rmStorage('mobile');
     $api.rmStorage('token');
+    glo.alert('注销成功');
+    location.reload();
     /*
     glo.get('/mobile/login/logout', function() {
       self.clear();

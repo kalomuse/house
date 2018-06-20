@@ -11,6 +11,7 @@
   <div class="container mt-65">
     <header class="header" id="header">  <!-- 2 -->
       <h2 class="web-tit">经纪人列表</h2>
+      <div class="h-right" onclick="glo.logout()" v-if="token">注销</div>
     </header>
     <!--pages/salelist/salelist.wxml-->
       <div class="salelist" v-if="agentlist">

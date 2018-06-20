@@ -2,7 +2,11 @@ apiready = function() {
   //初始化必须调用
   glo.init();
   var city = $api.getStorage('region');
-  $('#city').html(city?city:'');
+  if(city && city != 'undefined')
+    $('#city').html(city);
+  else {
+    $('#city').html('未开启定位');
+  }
 }
 
 function initArea() {

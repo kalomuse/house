@@ -6,7 +6,8 @@ var vue = new Vue({
     agentlist:{},
     isAgent:0,
     isStatus:0,
-    page: 1
+    page: 1,
+    token: '',
   },
   methods:{
     //楼盘详情事件处理函数
@@ -43,6 +44,7 @@ function bindViewuserlist() {
 apiready = function() {
   //初始化必须调用
   glo.init();
+  vue.token = $api.getStorage('token');
   //获取经纪人列表
   glo.post('/api/agent/getAgent', { regionid: $api.getStorage('regionid') }, function (res) {
       vue.agentlist = res.data;
