@@ -2,7 +2,7 @@ apiready = function() {
   //初始化必须调用
   glo.init();
   var city = $api.getStorage('region');
-  $('#city').html(city);
+  $('#city').html(city?city:'');
 }
 
 function initArea() {
