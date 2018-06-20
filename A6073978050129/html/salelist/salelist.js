@@ -27,7 +27,7 @@ function bindViewsale() {
   glo.open_win('../sale/sale');
 }
 //查看客户事件处理函数
-function bindViewuserlis() {
+function bindViewuserlist() {
   glo.open_win('../userlist/userlist');
 }
 

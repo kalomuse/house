@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="userlist.css" />
+</head>
+<body>
+  <div class="container mt-65">
+    <header class="header" id="header">  <!-- 2 -->
+      <a class="go-back" onclick="api.closeWin()"></a>
+      <h2 class="web-tit">客户列表</h2>
+    </header>
+    <!--pages/userlist/userlist.wxml-->
+    <div class="userlist">
+      <div class="item" v-for="v in customerlist">
+        <div class="img"><img :src="website + v.headimg"></img></div>
+        <div class="info">
+          <div class="name">{{v.name}}</div>
+          <div class="state">
+            <div class="{active: v.status>=1}" v-on:click="bindPickerstate()" data-key="{{k}}" data-id="{{v.id}}" data-status="1" data-nowstatus="{{v.status}}">有意向</div><icon></icon>
+            <div class="{active: v.status>=2}" v-on:click="bindPickerstate()" data-key="{{k}}" data-id="{{v.id}}" data-status="2" data-nowstatus="{{v.status}}">已洽谈</div><icon></icon>
+            <div class="{active: v.status>=3}" v-on:click="bindPickerstate()" data-key="{{k}}" data-id="{{v.id}}" data-status="3" data-nowstatus="{{v.status}}">已看房</div><icon></icon>
+            <div class="{active: v.status>=4}" v-on:click="bindPickerstate()" data-key="{{k}}" data-id="{{v.id}}" data-status="4" data-nowstatus="{{v.status}}">已交定金</div><icon></icon>
+            <div class="{active: v.status>=5}" v-on:click="bindPickerstate()" data-key="{{k}}" data-id="{{v.id}}" data-status="5" data-nowstatus="{{v.status}}">已成交</div>
+          </div>
+          <div class="cont">电话：<icon>{{v.telephone}}</icon></div>
+          <div class="cont">意向楼盘：<icon>{{v.house}}</icon></div>
+          <div class="cont">户型选择:<icon>{{v.house}}</icon></div>
+        </div>
+        <!-- <div class="state">
+          <picker class="picker-txt" bindchange="bindPickerstate" data-key="{{k}}" data-id="{{v.id}}" value="{{v.status-1}}" name="cardtype" range="{{array}}" >
+            <div class="picker">
+            {{array[v.status-1]}}
+            </div>
+            <icon class="iconfont icon-jikediancanicon13"></icon>
+          </picker>
+        </div> -->
+      </div>
+
+    </div>
+  </div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="userlist.js"></script>
+ </body>
+ </html>

@@ -24,17 +24,17 @@
         </div>
       </div>
       <div class="no-data" v-else>没有相关数据</div>
-    </div>
-    <div class="register-btn-wrap" v-if="isAgent==1 && isStatus==1">
-      <div class="register-btn register-btn01" onclick="bindViewsale()">修改信息</div>
-      <div class="register-btn register-btn02" onclick="bindViewuserlist()">查看客户</div>
-    </div>
-    <div class="register-btn-wrap" v-else-if="isAgent==1 && isStatus!=1">
-      <div class="register-btn" onclick="bindViewsale()">修改信息</div>
-    </div>
-    <div class="register-btn-wrap" v-else>
-      <div class="register-btn" onclick="bindViewsale()">注册经纪人</div>
-    </div>
+      <div class="register-btn-wrap" v-if="isAgent==1 && isStatus==1">
+        <div class="register-btn register-btn01" onclick="bindViewsale()">修改信息</div>
+        <div class="register-btn register-btn02" onclick="bindViewuserlist()">查看客户</div>
+      </div>
+      <div class="register-btn-wrap" v-else-if="isAgent==1 && isStatus!=1">
+        <div class="register-btn" onclick="bindViewsale()">修改信息</div>
+      </div>
+      <div class="register-btn-wrap" v-else>
+        <div class="register-btn" onclick="bindViewsale()">注册经纪人</div>
+      </div>
+  <div>
     <!-- <div class="register-btn" bindtap="binddivsale" wx:if="{{isAgent==1}}">我是经纪人</div>
     <div class="register-btn" bindtap="binddivsale" wx:else>注册经纪人</div> -->
    <!--底部导航  start-->
