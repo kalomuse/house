@@ -1,3 +1,22 @@
+function searchhouse(){
+  var keyword={
+      regionid: regionid,
+      pmin:$(".txt-wrap .txt").eq(0).find('input').val(),
+      pmax:$(".txt-wrap .txt").eq(1).find('input').val(),
+      htype: vue.htype,
+      hstatus: vue.hstatus
+    };
+    glo.post('/api/house/getHouses', keyword, function (res) {
+      if(res.Code){
+        vue.houselist = res.data;
+      }else{
+        vue.houselist = {};
+      }
+      $('.screen-wrap .scree-item').removeClass('active');
+      $('.pop-wrap-bg').removeClass('pop-show');
+      return false;
+    });
+};
 //vue初始事例
 var vue = new Vue({
   el: '.container',
@@ -23,6 +42,7 @@ var vue = new Vue({
     }
   }
 })
+
 apiready = function() {
   //初始化必须调用
   glo.init();
@@ -59,47 +79,6 @@ apiready = function() {
   })
 };
 $(function () {  
-  $('.sub-btn').on('click',function(){
-    var keyword=({
-        regionid: regionid,
-        pmin:$(".txt-wrap .txt").eq(0).find('input').val(),
-        pmax:$(".txt-wrap .txt").eq(1).find('input').val(),
-        htype: vue.htype,
-        hstatus: vue.hstatus
-      });
-  //  glo.echo(screen_data);
-    glo.open_win('../prolist/prolist', {keyword:keyword});
-  });
-  function searchhouse(){
-    var keyword=({
-        regionid: regionid,
-        pmin:$(".txt-wrap .txt").eq(0).find('input').val(),
-        pmax:$(".txt-wrap .txt").eq(1).find('input').val(),
-        htype: vue.htype,
-        hstatus: vue.hstatus
-      });
-      glo.echo(keyword);
-    var pmin = $(".txt-wrap .txt").eq(0).find('input').val();
-    var pmax = $(".txt-wrap .txt").eq(1).find('input').val();
-    var htype = vue.htype;
-    var hstatus =vue.hstatus;
-    // glo.post('/api/house/getHouses', {page: page}, function (res) {
-    //   vue({
-    //     regionid: $api.setStorage('regionid');
-    //     pmin:pmin,
-    //     pmax:pmax,
-    //     htype: htype,
-    //     hstatus: hstatus
-    //   });
-    //   if(res.Code){
-    //     vue.houselist=res.data
-    //   }else{
-    //     vue.houselist={};
-    //   }
-    // });
-  };
-
-
   $('.screen-wrap .scree-item').on('click',function(){
     $(this).addClass('active').siblings().removeClass('active');
     $('.pop-wrap-bg').eq($(this).index()).addClass('pop-show').siblings().removeClass('pop-show');

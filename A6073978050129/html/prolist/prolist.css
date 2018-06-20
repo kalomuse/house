@@ -9,7 +9,7 @@
 }
 .pro-list .pro-item{
   width: 100%;
-  border-top: 1px solid #ccc;
+  //border-top: 1px solid #ccc;
   padding: 8px 0;
 }
 .pro-list .pro-item:first-child{
@@ -55,11 +55,11 @@
   width: 100%;
   position: fixed;
   left: 0;
-  top: 65px;
+  top: 70px;
   background: #fff;
   z-index: 9;
   font-size: 0;
-  border-bottom: 10px solid #f5f5f5;
+  //border-bottom: 10px solid #f5f5f5;
 }
 .scree-item{
   display: inline-block;
