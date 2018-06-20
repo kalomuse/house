@@ -42,7 +42,7 @@ apiready = function() {
       vue.showimg = website + res.data.headimg;
       vue.headimg = res.data.headimg;
       //获取地理信息
-      glo.post('/api/region/setRegion', {regionid: $api.getStorage('regionid')}, function(res) {
+      glo.post('/api/region/setRegion', {regionid: res.data.region}, function(res) {
           vue.county = res.data.area;
           vue.city = res.data.city;
           vue.province = res.data.province;
