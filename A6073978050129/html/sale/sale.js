@@ -27,7 +27,7 @@ var vue = new Vue({
 })
 
 //定位事件处理函数
-function bindViewagreement() {
+function binddivagreement() {
   glo.open_win('../agreement/agreement');
 }
 

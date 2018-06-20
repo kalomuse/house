@@ -1,0 +1,19 @@
+/* pages/agreement/agreement.wxss */
+
+.container{
+  width: 100%;
+  padding: 0 10px;
+}
+.tit{
+  font-size: 18px;
+  color: #333;
+  line-height: 30px;
+}
+.agreement-view{
+  font-size: 12px;
+  color: #666;
+  line-height: 20px;
+}
+.agreement-view p{
+  text-indent: 2em;
+}
