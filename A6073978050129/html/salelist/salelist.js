@@ -33,7 +33,7 @@ function bindViewprice() {
   glo.open_frame('../real_search/real_search');
 }
 function bindViewsale() {
-  glo.open_win('../sale/sale');
+  glo.check_login('../sale/sale');
 }
 //查看客户事件处理函数
 function bindViewuserlist() {
