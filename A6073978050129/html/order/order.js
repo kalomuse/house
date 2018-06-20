@@ -11,8 +11,7 @@ function submit(){
   var id = api.pageParam.id;
   var name= $.trim($('#name').val());
   var telephone= $.trim($('#telephone').val());
-  var agent= $.trim($('agent').val());
-  var uid= $api.getStorage('token');
+  var agent= $.trim($('#agent').val());
   if(!name){
     glo.alert('请填写真实姓名');
   }
@@ -24,7 +23,6 @@ function submit(){
   }
   else {
     glo.post('/api/customer/postCustomer',{
-      'uid': uid,
       'name': name,
       'telephone': telephone,
       'house_id': id,
