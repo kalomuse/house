@@ -7,6 +7,15 @@ var vue = new Vue({
     isAgent:0,
     isStatus:0,
     page: 1
+  },
+  methods:{
+    //楼盘详情事件处理函数
+    callMobile: function(tel){
+      api.call({
+          type: 'tel_prompt',
+          number: tel
+      });
+    }
   }
 })
 

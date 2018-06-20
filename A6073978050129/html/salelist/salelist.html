@@ -18,7 +18,7 @@
           <div class="img"><img :src="website + v.headimg" ></div>
           <div class="info">
             <div class="name">{{v.name}}</div>
-            <div class="phone">联系电话号：<icon>{{v.telephone}}</icon></div>
+            <div class="phone" v-on:click="callMobile(v.telephone)">联系电话号：<icon>{{v.telephone}}</icon></div>
             <icon class="iconfont icon-weibiaoti-" v-on:click="callMobile(v.telephone)"></icon>
           </div>
         </div>

@@ -40,6 +40,7 @@ apiready = function() {
     if (res.Code) {
       vue.telephone = res.data.telephone;
       vue.showimg = website + res.data.headimg;
+      vue.headimg = res.data.headimg;
       //获取地理信息
       glo.post('/api/region/setRegion', {regionid: $api.getStorage('regionid')}, function(res) {
           vue.county = res.data.area;
@@ -147,7 +148,8 @@ function PostAgent() {
       'card': card,
       'address': address,
       'bank': bank,
-      'account': account
+      'account': account,
+      'region': vue.countyid,
   };
   if(status==1){
     has_submit = 1;

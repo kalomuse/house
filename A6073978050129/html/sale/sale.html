@@ -21,8 +21,8 @@
         </div>
         <div class="item">
           <input class="txt" placeholder="真实姓名" id="name" name="name" v-bind:value="agentinfo.name"/>
-          <div class="uploadimg-btn">
-            <img :src="showimg" onclick='getHeadimg()' />
+          <div class="uploadimg-btn" onclick='getHeadimg()' >
+            <img :src="showimg" />
           </div>
         </div>
         <div class="item">
