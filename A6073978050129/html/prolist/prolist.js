@@ -26,9 +26,14 @@ var vue = new Vue({
 apiready = function() {
   //初始化必须调用
   glo.init();
+  if ($api.getStorage('regionid') && $api.getStorage('region') != 'undefined') {
+    regionid =  $api.getStorage('regionid');
+  } else {
+    regionid =  330421;
+  }
   //初始化数据
   var data = {
-    regionid: $api.getStorage('regionid'),
+    regionid: regionid,
     keyword: $api.getStorage('keyword'),
   };
   glo.post('/api/house/getHouses', data, function (res) {
@@ -41,7 +46,7 @@ apiready = function() {
   glo.scrolltobottom(function() {
     // 页数+1
     var page = vue.page+1;
-    glo.post('/api/house/getHouses', {page: page,regionid: $api.getStorage('regionid'),keyword:$api.getStorage('keyword')}, function (res) {
+    glo.post('/api/house/getHouses', {page: page,regionid: regionid,keyword:$api.getStorage('keyword')}, function (res) {
       if(res.Code){
         var news_list = vue.houselist;
         for (var i = 0; i < res.data.length; i++) {
@@ -56,7 +61,7 @@ apiready = function() {
 $(function () {  
   $('.sub-btn').on('click',function(){
     var keyword=({
-        regionid: $api.getStorage('regionid'),
+        regionid: regionid,
         pmin:$(".txt-wrap .txt").eq(0).find('input').val(),
         pmax:$(".txt-wrap .txt").eq(1).find('input').val(),
         htype: vue.htype,
@@ -66,9 +71,8 @@ $(function () {  
     glo.open_win('../prolist/prolist', {keyword:keyword});
   });
   function searchhouse(){
-    alert(0);
     var keyword=({
-        regionid: $api.getStorage('regionid'),
+        regionid: regionid,
         pmin:$(".txt-wrap .txt").eq(0).find('input').val(),
         pmax:$(".txt-wrap .txt").eq(1).find('input').val(),
         htype: vue.htype,

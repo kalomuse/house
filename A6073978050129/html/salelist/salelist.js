@@ -49,7 +49,12 @@ apiready = function() {
   glo.init();
   vue.token = $api.getStorage('token');
   //获取经纪人列表
-  glo.post('/api/agent/getAgent', { regionid: $api.getStorage('regionid') }, function (res) {
+  if ($api.getStorage('regionid') && $api.getStorage('region') != 'undefined') {
+    var regionid =  $api.getStorage('regionid');
+  } else {
+    var regionid =  330421;
+  }
+  glo.post('/api/agent/getAgent', { regionid: regionid }, function (res) {
       vue.agentlist = res.data;
   });
 

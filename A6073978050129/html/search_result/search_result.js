@@ -20,8 +20,13 @@ var vue = new Vue({
 apiready = function() {
   //初始化必须调用
   glo.init();
+  if ($api.getStorage('regionid') && $api.getStorage('region') != 'undefined') {
+    var regionid =  $api.getStorage('regionid');
+  } else {
+    var regionid =  330421;
+  }
   vue.keyword = api.pageParam.keyword;
-  glo.post('/api/house/getHouses', {keyword: vue.keyword, regionid: $api.getStorage('regionid')}, function (res) {
+  glo.post('/api/house/getHouses', {keyword: vue.keyword, regionid: regionid}, function (res) {
     if (res.Code) {
       vue.houselist =  res.data
     }

@@ -174,7 +174,12 @@ apiready = function() {
   glo.init();
 
   //获取地理信息
-  glo.post('/api/purpose/getRegion', {regionid: $api.getStorage('regionid')}, function (res) {
+  if ($api.getStorage('regionid') && $api.getStorage('region') != 'undefined') {
+    var regionid =  $api.getStorage('regionid');
+  } else {
+    var regionid =  330421;
+  }
+  glo.post('/api/purpose/getRegion', {regionid: regionid}, function (res) {
       vue.arealist= res.data;
   });
 };
