@@ -130,10 +130,8 @@ function PostAgent() {
         has_submit = 0;
         if(res.Code) {
           $api.setStorage('is_agent', 1);
-          glo.echo('提交完成')
-          setTimeout(function () {
-            glo.open_win('../salelist/salelist');
-          }, 2000);
+          glo.echo('提交完成，正在审核中');
+          glo.open_win('../salelist/salelist');
         } else{
           glo.echo(res.Header.ErrorMessage)
         }

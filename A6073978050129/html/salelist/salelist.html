@@ -1,66 +1,65 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-    <meta charset="utf-8">
-    <meta name="divport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-    <link rel="stylesheet" type="text/css" href="../../css/api.css" />
-    <link rel="stylesheet" type="text/css" href="../../css/common.css" />
-    <link rel="stylesheet" type="text/css" href="salelist.css" />
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+  <link rel="stylesheet" type="text/css" href="salelist.css" />
 </head>
-
 <body>
-    <div class="container mt-65">
-        <header class="header" id="header">
-            <h2 class="web-tit">经济人</h2>
-        </header>
-        <!--index.wxml-->
-        <div class="salelist" v-if="agentlist">
-
-            <div class="item" v-for="v in agentlist">
-                <div class="img"><img :src="website + v.headimg" /></div>
-                <div class="info">
-                    <p class="name">{{v.name}}</p>
-                    <p class="phone">联系电话号：<i>{{v.telephone}}</i></p>
-                    <em class="iconfont icon-weibiaoti-"></em>
-                </div>
-            </div>
+  <div class="container mt-65">
+    <header class="header" id="header">  <!-- 2 -->
+      <h2 class="web-tit">经纪人列表</h2>
+    </header>
+    <!--pages/salelist/salelist.wxml-->
+      <div class="salelist" v-if="agentlist">
+        <div class="item" v-for="v in agentlist">
+          <div class="img"><img :src="website + v.headimg" ></div>
+          <div class="info">
+            <div class="name">{{v.name}}</div>
+            <div class="phone">联系电话号：<icon>{{v.telephone}}</icon></div>
+            <icon class="iconfont icon-weibiaoti-" v-on:click="callMobile(v.telephone)"></icon>
+          </div>
         </div>
-        <div class="no-data" v-else>没有相关数据</div>
+      </div>
+      <div class="no-data" v-else>没有相关数据</div>
     </div>
-
-    <!--底部导航  start-->
-    <div class="register-btn-wrap" v-if="isAgent==1">
-        <div class="register-btn register-btn01" onclick="bindViewsale()">修改信息</div>
-        <div class="register-btn register-btn02" onclick="bindViewuserlist()">查看客户</div>
+    <div class="register-btn-wrap" v-if="isAgent==1 && isStatus==1">
+      <div class="register-btn register-btn01" onclick="bindViewsale()">修改信息</div>
+      <div class="register-btn register-btn02" onclick="bindViewuserlist()">查看客户</div>
+    </div>
+    <div class="register-btn-wrap" v-else-if="isAgent==1 && isStatus!=1">
+      <div class="register-btn" onclick="bindViewsale()">修改信息</div>
     </div>
     <div class="register-btn-wrap" v-else>
-        <div class="register-btn" onclick="bindViewsale()">注册经纪人</div>
+      <div class="register-btn" onclick="bindViewsale()">注册经纪人</div>
     </div>
-    <!--底部导航  start-->
-    <div class="nav-wrap">
-        <div onclick="bindViewpro()" class="nav-item">
-            <div class="iconfont icon-loupan"></div>
-            <div>楼盘</div>
-        </div>
-        <div class="nav-item  active">
-            <div class="iconfont icon-xiaoshou"></div>
-            <div>经纪人</div>
-        </div>
-        <div onclick="bindViewnews()" class="nav-item">
-            <div class="iconfont icon-zixun"></div>
-            <div>资讯</div>
-        </div>
-        <div onclick="bindViewprice()" class="nav-item">
-            <div class="iconfont icon-fangjiameiyuanfangzimianxing"></div>
-            <div>查房价</div>
-        </div>
-    </div>
-    <script type="text/javascript" src="../../script/api.js"></script>
-    <script type="text/javascript" src="../../script/jquery.min.js"></script>
-    <script src="../../script/vue.js"></script>
-    <script type="text/javascript" src="../../script/global.js"></script>
-    <script type="text/javascript" src="salelist.js"></script>
-</body>
-
-</html>
+    <!-- <div class="register-btn" bindtap="binddivsale" wx:if="{{isAgent==1}}">我是经纪人</div>
+    <div class="register-btn" bindtap="binddivsale" wx:else>注册经纪人</div> -->
+   <!--底部导航  start-->
+   <div class="nav-wrap">
+     <div onclick="bindViewpro()" class="nav-item">
+       <div class="iconfont icon-loupan"></div>
+       <div>楼盘</div>
+     </div>
+     <div onclick="bindViewsale()" class="nav-item active">
+       <div class="iconfont icon-xiaoshou"></div>
+       <div>经纪人</div>
+     </div>
+     <div onclick="bindViewnews()" class="nav-item">
+       <div class="iconfont icon-zixun"></div>
+       <div>资讯</div>
+     </div>
+     <div onclick="bindViewprice()" class="nav-item">
+       <div class="iconfont icon-fangjiameiyuanfangzimianxing"></div>
+       <div>查房价</div>
+     </div>
+   </div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="salelist.js"></script>
+ </body>
+ </html>
