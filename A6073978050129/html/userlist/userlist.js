@@ -11,12 +11,16 @@ var vue = new Vue({
   }
 })
 
-
-//点击事例，navigateTo对应open_win，redirectTo对应open_frame
-function bindViewsearch() {
-  glo.open_win('../search/search');
-}
-
+function bindPickerstate(key,cid,status,nowstatus) {
+    if (status > nowstatus){
+      //修改客户状态
+      glo.post('/api/customer/changeStatus', { 'cid': cid, 'status': status }, function(res) {
+        var newcustomer = vue.customerlist;
+        newcustomer[key].status = status;
+        vue.customerlist = newcustomer;
+      })
+    }
+  }
 
 apiready = function() {
   //初始化必须调用

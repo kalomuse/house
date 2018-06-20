@@ -10,7 +10,7 @@
 .userlist .item{
   width: 100%;
   border-bottom: 1px solid #ddd;
-  padding: 10px 0 15px 40px;
+  padding: 10px 0 15px 10px;
   box-sizing: border-box;
   position: relative;
 }
