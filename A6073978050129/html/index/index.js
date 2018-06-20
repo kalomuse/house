@@ -39,6 +39,12 @@ function bindViewintention() {
 function goSalelist() {
   glo.open_frame('salelist/salelist');
 }
+function switchCity(region, regionid) {
+  alert(region);
+  alert(regionid);
+  vue.region = region;
+  vue.regionid = regionid;
+}
 apiready = function() {
 
   vue = new Vue({

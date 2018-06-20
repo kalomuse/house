@@ -1,1 +1,25 @@
-house_location
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+</head>
+<body>
+  <div class="container mt-85" style="padding-left:20px;padding-top:20px;">
+    <header class="header" id="header">  <!-- 2 -->
+      <a class="go-back" onclick="api.closeWin()"></a>
+      <h2 class="web-tit">城市切换</h2>
+    </header>
+    <div style="width:100%;color:#666;" onclick="initArea()" >
+      <p style="text-align:left;">当前定位城市：<span id="city"style="color:red"></span>（点击重新定位）</p>
+    </div>
+  </div>
+</div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script type="text/javascript" src="house_location.js"></script>
+ </body>
+ </html>
