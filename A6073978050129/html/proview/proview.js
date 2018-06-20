@@ -5,28 +5,36 @@ var vue = new Vue({
     houseid:'',
     houseinfo:{},
     housetype:{}
+  },
+  methods:{
+    //楼盘详情事件处理函数
+    callMobile: function(tel){
+      api.call({
+          type: 'tel_prompt',
+          number: vue.telephone
+      });
+    }
   }
 });
-function callMobile() {
-  api.call({
-      type: 'tel_prompt',
-      number: '10086'
-  });
-}
+
 function callWechat(){
-  alert('请加微信XXXXXXXXXXXXX')
+  alert('请加微信' + vue.wechat)
 }
 
 function bindVieworder(){
     var id = api.pageParam.id;
-  glo.open_win('../order/order',{id:id,title:vue.houseinfo.title});
+    glo.open_win('../order/order',{id:id,title:vue.houseinfo.title});
 }
 apiready = function() {
   //初始化必须调用
   glo.init();
   //初始化数据
   var id = api.pageParam.id;
-  // alert(id);
+  glo.post('/api/base/getConfig', { id: id }, function (res) {
+    vue.telephone = res.data.telephone;
+    vue.wechat = res.data.wechat;
+  });
+
   glo.post('/api/house/getHousedetail', { id: id }, function (res) {
       vue.houseinfo =  res.data;
       //glo.echo(res.data.img);
@@ -55,21 +63,5 @@ apiready = function() {
   });
   glo.post('/api/house/getHousetype', { id: id }, function (res) {
       vue.housetype =  res.data;
-      // glo.echo(res);
   });
-
-  // callMobile:function(e){
-  //     var obj=this;
-  //     wx.makePhoneCall({
-  //       phoneNumber: obj.data.telephone, //此号码并非真实电话号码，仅用于测试
-  //     })
-  //   },
-  //   callWechat:function(e){
-  //     var obj = this;
-  //     wx.showToast({
-  //       title: '请添加微信号：' + obj.data.wechat,
-  //       icon: 'none',
-  //       duration: 5000
-  //     })
-  //   },
 };
