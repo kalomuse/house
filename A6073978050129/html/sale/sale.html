@@ -37,7 +37,7 @@
           <input class="txt" placeholder="证件号码" id="card" name="card"  v-bind:value='agentinfo.card'></input>
         </div>
         <div class="item">
-          <input class="txt txt-arrow" name="address" placeholder="常住地" v-bind:value="province + '-' + city + '-' +  county" onclick="initArea()"></input>
+          <input readonly class="txt txt-arrow" name="address" placeholder="常住地" v-bind:value="province + '-' + city + '-' +  county" onclick="initArea()"></input>
           <icon class="iconfont icon-jiantou1"></icon>
         </div>
         <div class="sale-tit">
