@@ -181,8 +181,8 @@ function initArea() {
           sizeActive: 14,
           rowSpacing: 5,
           colSpacing: 10,
-          maskBg: 'rgba(f,f,f,0.8)',
-          bg: 'rgba(f,f,f,0.8)',
+          //maskBg: 'rgba(f,f,f,0.8)',
+          //bg: 'rgba(f,f,f,0.8)',
           color: '#888',
           colorActive: '#3483ee',
           colorSelected: '#3483ee'
