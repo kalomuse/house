@@ -120,7 +120,7 @@ apiready = function() {
                 });  
                 bMap.stopLocation();
             } else {
-                alert(err.code);
+                //alert(err.code);
             }
         });
       } else {
