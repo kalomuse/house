@@ -52,11 +52,7 @@ function authWX() {
         var code = ret.code;
         getToken(code);
       } else {
-        api.toast({
-          msg: '错误',
-          duration: 2000,
-          location: 'middle'
-        });
+        glo.echo(ret);
       }
     } else {
       switch(err.code) {
