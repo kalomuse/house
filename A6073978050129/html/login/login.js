@@ -103,11 +103,7 @@ function getToken(code) {
         var openId=ret.openId;
         getUserInfo(accessToken,openId);
       } else {
-        api.toast({
-          msg: '错误',
-          duration: 2000,
-          location: 'middle'
-        });
+        glo.echo(ret);
       }
     } else {
       switch(err.code) {
