@@ -92,8 +92,6 @@ function authWX() {
 function getToken(code) {
   var wx = api.require('wx');
   wx.getToken({
-    apiKey: '',
-    apiSecret: '',
     code: code
   }, function(ret, err) {
     if (ret) {
@@ -103,7 +101,7 @@ function getToken(code) {
         var openId=ret.openId;
         getUserInfo(accessToken,openId);
       } else {
-        glo.echo(ret);
+        glo.echo(err);
       }
     } else {
       switch(err.code) {
