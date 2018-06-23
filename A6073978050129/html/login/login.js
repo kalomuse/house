@@ -33,6 +33,158 @@ function(res){
 
 }
 
+//微信登录
+function authWX() {
+  api.showProgress({
+    style: 'default',
+    animationType: 'fade',
+    title: '',
+    text: '启动中...',
+    modal: false
+  });
+  var wx = api.require('wx');
+  wx.auth({
+
+  }, function(ret, err) {
+    api.hideProgress();
+    if (ret) {
+      if (ret.status) {
+        var code = ret.code;
+        getToken(code);
+      } else {
+        api.toast({
+          msg: '错误',
+          duration: 2000,
+          location: 'middle'
+        });
+      }
+    } else {
+      switch(err.code) {
+        case -1:
+          api.toast({
+            msg: '未知错误',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+        case 1:
+          api.toast({
+            msg: '用户取消',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+        case 2:
+          api.toast({
+            msg: '用户拒绝授权',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+        case 3:
+          api.toast({
+            msg: '当前设备未安装微信客户端',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+      }
+    }
+  });
+}
+
+function getToken(code) {
+  var wx = api.require('wx');
+  wx.getToken({
+    apiKey: '',
+    apiSecret: '',
+    code: code
+  }, function(ret, err) {
+    if (ret) {
+      if (ret.status) {
+        var accessToken=ret.accessToken;
+        var dynamicToken=ret.dynamicToken;
+        var openId=ret.openId;
+        getUserInfo(accessToken,openId);
+      } else {
+        api.toast({
+          msg: '错误',
+          duration: 2000,
+          location: 'middle'
+        });
+      }
+    } else {
+      switch(err.code) {
+        case -1:
+          api.toast({
+            msg: '未知错误',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+        case 1:
+          api.toast({
+            msg: 'apiKey值为空或非法',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+        case 2:
+          api.toast({
+            msg: 'apiSecret值为空或非法',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+        case 3:
+          api.toast({
+            msg: 'code值为空或非法',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+        case 4:
+          api.toast({
+            msg: '网络超时',
+            duration: 2000,
+            location: 'middle'
+          });
+          break;
+      }
+    }
+  });
+}
+
+function getUserInfo(accessToken,openId) {
+  var wx = api.require('wx');
+  wx.getUserInfo({
+    accessToken: accessToken,
+    openId: openId
+  }, function(res, err) {
+    var data = {
+      'oauth': 'weixin',
+      'openid' : res.openid,
+      'nickname': res.nickname,
+      'sex': res.sex,
+      'head_pic': res.headimgurl,
+      'unionid': res.unionid,
+    }
+    //注册
+    glo.echo(data);
+    //third_login(data);
+  });
+}
+
+function third_login(data) {
+  glo.post('/mobile/login/third_login', data, function(res) {
+    if(res.status == 1) {
+      glo.set_loginInfo(res);
+      api.closeWin();
+    } else {
+      glo.echo(res.msg);
+    }
+  });
+}
 
 function countdown(obj, msg) {
     obj = $(obj);

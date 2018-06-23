@@ -9,7 +9,7 @@
 <body>
   <div class="container mt-65">
     <header class="header" id="header">  <!-- 2 -->
-      <a class="go-back" onclick="api.closeWin()"></a>
+      <a class="go-back" onclick="closeMap()"></a>
       <h2 class="web-tit">地图</h2>
     </header>
   </div>
@@ -23,6 +23,10 @@
   var lat = api.pageParam.lat,
       lon = api.pageParam.lon;
       openMap(lon, lat);
+ }
+ function closeMap() {
+   map.close();
+   api.closeWin();
  }
 
  function openMap(lon, lat) {
