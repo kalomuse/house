@@ -13,6 +13,9 @@ var vue = new Vue({
           type: 'tel_prompt',
           number: vue.telephone
       });
+    },
+    openMap: function(lon, lat) {
+      glo.open_win('../map/map', {lon:lon,lat:lat});
     }
   }
 });

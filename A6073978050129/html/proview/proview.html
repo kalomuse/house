@@ -20,7 +20,7 @@
       <div class="pro-price" v-if="houseinfo.price">{{houseinfo.price}}<icon>元/平</icon></div>
       <div class="pro-price" v-else>价格待定</div>
       <div class="pro-address-wrap">
-        <div class="pro-address" data-address="{{houseinfo.address}}" data-longitude="{{houseinfo.longitude}}" data-latitude="{{houseinfo.latitude}}" data-title="{{houseinfo.title}}" bindtap="showAdd">
+        <div class="pro-address" data-address="{{houseinfo.address}}" data-title="{{houseinfo.title}}" bindtap="showAdd" v-on:click="openMap(houseinfo.longitude, houseinfo.latitude)">
           <icon class="iconfont icon-dingwei"></icon>{{houseinfo.address}}
         </div>
         <!-- <div class="pro-phone" bindtap="callMobile"><icon class="iconfont icon-dianhua"></icon></div> -->

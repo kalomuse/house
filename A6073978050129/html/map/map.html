@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <link rel="stylesheet" type="text/css" href="../../css/api.css" />
+  <link rel="stylesheet" type="text/css" href="../../css/common.css" />
+</head>
+<body>
+  <div class="container mt-65">
+    <header class="header" id="header">  <!-- 2 -->
+      <a class="go-back" onclick="api.closeWin()"></a>
+      <h2 class="web-tit">地图</h2>
+    </header>
+  </div>
+ <script type="text/javascript" src="../../script/api.js"></script>
+ <script type="text/javascript" src="../../script/jquery.min.js"></script>
+ <script src="../../script/vue.js"></script>
+ <script type="text/javascript" src="../../script/global.js"></script>
+ <script>
+ apiready = function() {
+   glo.init();
+  var lat = api.pageParam.lat,
+      lon = api.pageParam.lon;
+      openMap(lon, lat);
+ }
+
+ function openMap(lon, lat) {
+   if(typeof map == 'undefined')
+     map = api.require('bMap');
+     map.open({
+         rect: {
+             x: 0,
+             y: 65,
+             w: api.winWidth,
+             h: api.winHeight
+         },
+         center: {
+             lon: lon,
+             lat: lat
+         },
+         zoomLevel: 15,
+         showUserLocation: true,
+         fixedOn: api.frameName,
+         fixed: true
+     }, function(ret) {
+         if (ret.status) {
+           map.addAnnotations({
+               annotations: [{
+                   id: 1,
+                   lon: lon,
+                   lat: lat
+               }],
+               draggable: false
+           }, function(ret) {
+               if (ret) {
+                   alert(ret.id);
+               }
+           });
+         }
+     });
+  }
+ </script>
+ </body>
+ </html>

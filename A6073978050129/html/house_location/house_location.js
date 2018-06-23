@@ -68,9 +68,10 @@ function initArea() {
         $api.setStorage('regionid', countyid);
         api.execScript({
             name: 'root',
-            frameName: 'main',
+            frameName: '.._main',
             script: 'getData()'
         });
+        UIActionSelector.close();
       } else {
           alert(JSON.stringify(err));
       }
