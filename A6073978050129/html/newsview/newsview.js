@@ -17,6 +17,6 @@ apiready = function() {
   glo.post('/api/news/getNewdetail', { id: id }, function (res) {
       var content = res.data.content.replace('src="', 'src="' + website);
       vue.newinfo =  res.data;
-      $('#content').html(content);
+      $('.content').html(content);
   });
 };
