@@ -78,7 +78,7 @@ else  if(verify_code==''){
         $api.setStorage('is_agent', res.data.is_agent);
         $api.setStorage('token', res.data.token);
         api.execScript({
-            name: 'main',
+            name: 'root',
             frameName: 'salelist_salelist',
             script: 'reload()'
         });

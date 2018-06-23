@@ -5,7 +5,7 @@ apiready = function() {
   if(city && city != 'undefined')
     $('#city').html(city);
   else {
-    $('#city').html('未开启定位');
+    $('#city').html('嘉善县');
   }
 }
 
@@ -67,8 +67,8 @@ function initArea() {
         $api.setStorage('region', county);
         $api.setStorage('regionid', countyid);
         api.execScript({
-            name: 'main',
-            //script: 'switchCity("' + county + '", "' + countyid + '")',
+            name: 'root',
+            frameName: 'main',
             script: 'getData()'
         });
       } else {

@@ -97,7 +97,7 @@
   overflow: hidden;
   padding: 0 8px;
   border-top: 1px solid #ccc;
-  z-index: 99;
+  z-index: 9999;
 }
 .nav-wrap .nav-item{
   height: 59px;

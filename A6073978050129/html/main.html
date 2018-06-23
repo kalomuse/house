@@ -37,17 +37,20 @@
   <!--标题  end-->
 
   <!--楼盘列表  start-->
-  <div class="pro-list" v-for="v in houselist">
-    <div  v-on:click="bindViewproview(v.id)" class="pro-item" data-id="{{v.id}}">
-      <div class="pro-img"><img :src="website + v.first_img" class="slide-image"/></div>
-      <div class="pro-name">
-        <div class="fl pro-tit">{{v.title}}</div>
-        <div class="fr pro-priec" v-if="v.price">{{v.price}}<icon>元/平</icon></div>
-        <div class="fr pro-priec" v-else>价格待定</div>
+  <div  v-if="count>0">
+    <div class="pro-list" v-for="v in houselist">
+      <div  v-on:click="bindViewproview(v.id)" class="pro-item" data-id="{{v.id}}">
+        <div class="pro-img"><img :src="website + v.first_img" class="slide-image"/></div>
+        <div class="pro-name">
+          <div class="fl pro-tit">{{v.title}}</div>
+          <div class="fr pro-priec" v-if="v.price">{{v.price}}<icon>元/平</icon></div>
+          <div class="fr pro-priec" v-else>价格待定</div>
+        </div>
+        <div class="pro-address">{{v.address}}</div>
       </div>
-      <div class="pro-address">{{v.address}}</div>
     </div>
   </div>
+  <div class="no-data" v-else>没有该地区的楼盘信息</div>
 </div>
 
 <!--底部导航  start-->

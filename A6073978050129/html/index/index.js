@@ -52,7 +52,8 @@ apiready = function() {
       regionid: 330421,
       region:'嘉善县',
       purpose:'填写购房意向，让经济人来帮你找房',
-      purposeid:0
+      purposeid:0,
+      count:0,
     },
     methods:{
       //楼盘详情事件处理函数
@@ -85,7 +86,6 @@ apiready = function() {
           }
       });
   });
-
   if ($api.getStorage('regionid') && $api.getStorage('region') != 'undefined') {
     vue.region =  $api.getStorage('region');
     vue.regionid =  $api.getStorage('regionid');
@@ -131,6 +131,7 @@ apiready = function() {
   //获取推荐楼盘
   glo.post('/api/index/getRemhouses', { regionid: vue.regionid }, function (res) {
       vue.houselist =  res.data;
+      vue.count = res.data.length;
   });
 
   //获取banner图
