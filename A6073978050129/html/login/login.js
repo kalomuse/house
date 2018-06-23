@@ -47,6 +47,7 @@ function authWX() {
 
   }, function(ret, err) {
     api.hideProgress();
+    glo.echo(ret);
     if (ret) {
       if (ret.status) {
         var code = ret.code;
@@ -97,6 +98,7 @@ function getToken(code) {
     code: code
   }, function(ret, err) {
     if (ret) {
+      glo.echo(ret);
       if (ret.status) {
         var accessToken=ret.accessToken;
         var dynamicToken=ret.dynamicToken;
@@ -153,6 +155,7 @@ function getUserInfo(accessToken,openId) {
     accessToken: accessToken,
     openId: openId
   }, function(res, err) {
+    glo.echo(res);
     var data = {
       'oauth': 'weixin',
       'openid' : res.openid,
