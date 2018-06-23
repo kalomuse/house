@@ -92,6 +92,8 @@ function authWX() {
 function getToken(code) {
   var wx = api.require('wx');
   wx.getToken({
+    apiKey: 'wx8519b390e429f7f8',
+    apiSecret: '2a4882ce70898b679f7904c66859d5808',
     code: code
   }, function(ret, err) {
     if (ret) {
