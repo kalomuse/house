@@ -35,6 +35,8 @@ function(res){
 
 //微信登录
 function authWX() {
+  alert('微信登录暂未开放');
+  return false;
   api.showProgress({
     style: 'default',
     animationType: 'fade',
@@ -47,7 +49,6 @@ function authWX() {
 
   }, function(ret, err) {
     api.hideProgress();
-    glo.echo(ret);
     if (ret) {
       if (ret.status) {
         var code = ret.code;
@@ -96,7 +97,6 @@ function getToken(code) {
     code: code
   }, function(ret, err) {
     if (ret) {
-      glo.echo(ret);
       if (ret.status) {
         var accessToken=ret.accessToken;
         var dynamicToken=ret.dynamicToken;
@@ -153,7 +153,6 @@ function getUserInfo(accessToken,openId) {
     accessToken: accessToken,
     openId: openId
   }, function(res, err) {
-    glo.echo(res);
     var data = {
       'oauth': 'weixin',
       'openid' : res.openid,
@@ -163,8 +162,7 @@ function getUserInfo(accessToken,openId) {
       'unionid': res.unionid,
     }
     //注册
-    glo.echo(data);
-    //third_login(data);
+    third_login(data);
   });
 }
 
