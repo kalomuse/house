@@ -18,7 +18,7 @@ function realsearch() {
      return false
    }
    glo.show_progress('正在查询...');
-   $api.post('http://scrapy.jiashanquan.top/?a='+api.pageParam.keyword, {},function (res) {
+   $api.post('http://scrapy.jiashanquan.top/?a='+keyword, {},function (res) {
       glo.hide_progress();
       var res = JSON.parse(res.msg), data = {}
       for(index in res) {
