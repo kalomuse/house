@@ -15,7 +15,7 @@ apiready = function() {
 
   var id = api.pageParam.id;
   glo.post('/api/news/getNewdetail', { id: id }, function (res) {
-      var content = res.data.content.replace('src="', 'src="' + website);
+      var content = res.data.content.replace(/src="/g, 'src="' + website);
       vue.newinfo =  res.data;
       $('.content').html(content);
   });

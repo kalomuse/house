@@ -6,19 +6,22 @@
 img {
   max-width: 100%;
 }
+.newsdiv {
+  padding: 0px 10px;
+}
 .newstit{
-  width: 100%;
+  margin-left: 10px;
+  font-weight: 900;
   font-size: 17px;
   color: #333;
   line-height: 23px;
   padding: 0 0 6px 0;
 }
 .newstime{
-  width: 100%;
   font-size: 12px;
   color: #999;
   line-height: 20px;
-  padding: 0 0 10px 0;
+  padding: 0 0 10px 10px;
 }
 .newsview{
   width: 100%;
