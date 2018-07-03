@@ -1,3 +1,35 @@
+function show_menu() {
+	var bd_top = $(document).scrollTop();
+	if($('#menu').css('display')=='none') {
+		$('#menu').removeClass('hid');
+		$('#menu').addClass('show');
+
+			$('#hed_id').removeClass('hd_box_float');
+			$('#play_box').removeClass('p48');
+			$('.mnav').css({"position":"relative"});
+
+		//setcookie('hidtips','1');
+	} else {
+		$('#menu').removeClass('show');
+		$('#menu').addClass('hid');
+
+			$('#hed_id').addClass('hd_box_float');
+			$('#play_box').addClass('p48');
+			$('.mnav').css({"position":"absolute"});
+
+		//setcookie('hidtips','1');
+	}
+ }
+
+(function(){
+   var $nav = $('.goods_nav');
+   $(window).on("scroll", function() {
+   $('#menu').removeClass('show');
+	$('#menu').addClass('hid');
+	});
+ })();
+
+
 var vue = new Vue({
   el: '.container',
   data: {
