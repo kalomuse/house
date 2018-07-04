@@ -83,7 +83,7 @@ wx.isInstalled(function(ret, err) {
 		    thumb:website +vue.houseinfo.img[0],//不是png无法显示
  webpageUrl: 'http://apicloud.com',
  userName: 'gh_a7f276a16ab6',
-    path: '/pages/index/index',
+    path: '/pages/proview/proview?id='+api.pageParam.id,
 
 
 
