@@ -1,5 +1,5 @@
- var website = "http://house.jiashanquan.top";
- //var website = "http://192.168.18.118:80";
+ //var website = "http://house.jiashanquan.top";
+ var website = "http://192.168.18.118:80";
 
 var glo = {
   init: function(data) {

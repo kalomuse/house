@@ -165,7 +165,7 @@ function getUserInfo(accessToken,openId) {
 }
 
 function third_login(data) {
-  glo.post('/mobile/login/appThirdLogin', data, function(res) {
+  glo.post('/api/user/appThirdLogin', data, function(res) {
     if(res.Code==1){
       $api.setStorage('is_agent', res.data.is_agent);
       $api.setStorage('token', res.data.token);
