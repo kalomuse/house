@@ -71,6 +71,7 @@ apiready = function() {
   });
 };
 function share(){
+  // alert(vue.houseinfo.img[0].replace("jpg","png"));
 	var wx = api.require('wx');
 wx.isInstalled(function(ret, err) {
     if (ret.installed) {
@@ -81,10 +82,10 @@ wx.isInstalled(function(ret, err) {
 				description:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居APP查看吧！',
 		    thumb:website +vue.houseinfo.img[0],//不是png无法显示
  webpageUrl: 'http://apicloud.com',
- userName: 'wx84a13a6b7eb04e94',
+ userName: 'gh_a7f276a16ab6',
     path: '/pages/index/index',
 
-		   contentUrl: website + '/api/base/getQrCode',
+
 
 		}, function(ret, err) {
 		    if (ret.status) {
