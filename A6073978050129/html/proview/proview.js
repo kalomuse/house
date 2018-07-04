@@ -76,17 +76,12 @@ function share(){
 wx.isInstalled(function(ret, err) {
     if (ret.installed) {
 			wx.shareProgram({
-
-
-					title:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居查看吧！',
+        title:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居查看吧！',
 				description:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居APP查看吧！',
 		    thumb:'../../images/share.jpeg',//不是png无法显示
  webpageUrl: 'http://apicloud.com',
  userName: 'gh_a7f276a16ab6',
     path: '/pages/proview/proview?id='+api.pageParam.id,
-
-
-
 		}, function(ret, err) {
 		    if (ret.status) {
 		        alert('分享成功');

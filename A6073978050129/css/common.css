@@ -170,6 +170,9 @@
 .header {width:100%; padding-top:10px;height:45px; background:#F6F6F6;top:0; z-index:9999; border:0; border-bottom:1px solid #CCC; position: fixed; left: 0; top: 0;}
 .h-left{float:left;width:10%; height:45px;}
 .h-right{position: absolute;right: 15px;bottom: 12px; color:#666;}
+.h-right .share{
+  width:30px;position:absolute;bottom:-3px;right:0px;
+}
 .go-back{
   background: url(../images/arrow_left.png) no-repeat 15px center;
   background-size: auto 20px;
