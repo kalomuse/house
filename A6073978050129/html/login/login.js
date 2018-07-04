@@ -169,6 +169,16 @@ function third_login(data) {
     if(res.Code==1){
       $api.setStorage('is_agent', res.data.is_agent);
       $api.setStorage('token', res.data.token);
+      api.execScript({
+          name: 'root',
+          frameName: 'salelist_salelist',
+          script: 'reload()'
+      });
+      if(res.data.is_agent) {
+        api.closeWin();
+      } else {
+        glo.open_frame(api.pageParam.from);
+      }
     } else {
       alert('登录失败');
     }
