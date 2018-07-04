@@ -78,7 +78,8 @@ wx.isInstalled(function(ret, err) {
 			wx.shareProgram({
         title:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居查看吧！',
 				description:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居APP查看吧！',
-		    thumb:website +vue.houseinfo.img[0],//不是png无法显示
+		    //thumb:website +vue.houseinfo.img[0],//不是png无法显示
+        thumb: 'widget://images/intention.png',
         webpageUrl: 'http://apicloud.com',
         userName: 'gh_a7f276a16ab6',
         path: '/pages/proview/proview?id='+api.pageParam.id,
