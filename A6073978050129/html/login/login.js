@@ -35,8 +35,6 @@ function(res){
 
 //微信登录
 function authWX() {
-  alert('微信登录暂未开放');
-  return false;
   api.showProgress({
     style: 'default',
     animationType: 'fade',
@@ -162,7 +160,8 @@ function getUserInfo(accessToken,openId) {
       'unionid': res.unionid,
     }
     //注册
-    third_login(data);
+    glo.echo(data);
+    ///third_login(data);
   });
 }
 
