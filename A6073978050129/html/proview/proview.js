@@ -73,23 +73,35 @@ apiready = function() {
 function share(){
   // alert(vue.houseinfo.img[0].replace("jpg","png"));
 	var wx = api.require('wx');
-wx.isInstalled(function(ret, err) {
+  wx.isInstalled(function(ret, err) {
     if (ret.installed) {
-			wx.shareProgram({
-        title:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居查看吧！',
-				description:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居APP查看吧！',
-		    //thumb:website +vue.houseinfo.img[0],//不是png无法显示
-        thumb: 'widget://images/intention.png',
-        webpageUrl: 'http://apicloud.com',
-        userName: 'gh_a7f276a16ab6',
-        path: '/pages/proview/proview?id='+api.pageParam.id,
-		}, function(ret, err) {
-		    if (ret.status) {
-		        alert('分享成功');
-		    } else {
-		        alert(err.code);
-		    }
-		});
+      api.imageCache({
+          url: website +vue.houseinfo.img[0],
+      }, function(ret, err) {
+          var url = ret.url, scene = '';
+          //是否为经纪人
+          glo.post('/api/agent/isAgent', {}, function (res) {
+            if(res.Code && res.data.status == 1){
+              scene = "leader=" + res.data.user_id;
+            }
+            wx.shareProgram({
+              title:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居查看吧！',
+      				description:vue.houseinfo.title+'的房价只要'+vue.houseinfo.price+'元哦，快登陆禧乾居APP查看吧！',
+      		    //thumb:,//不是png无法显示
+              scene: scene,
+              thumb: url,
+              webpageUrl: 'http://apicloud.com',
+              userName: 'gh_a7f276a16ab6',
+              path: '/pages/proview/proview?id='+api.pageParam.id,
+        		}, function(ret, err) {
+        		    if (ret.status) {
+        		        alert('分享成功');
+        		    } else {
+        		        alert(err.code);
+        		    }
+        	  });
+          });
+      });
     } else {
         alert('当前设备未安装微信客户端');
     }
