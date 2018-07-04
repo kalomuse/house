@@ -35,8 +35,6 @@ function(res){
 
 //微信登录
 function authWX() {
-  alert('微信登录暂未开放');
-  return false;
   api.showProgress({
     style: 'default',
     animationType: 'fade',
@@ -167,12 +165,22 @@ function getUserInfo(accessToken,openId) {
 }
 
 function third_login(data) {
-  glo.post('/mobile/login/third_login', data, function(res) {
-    if(res.status == 1) {
-      glo.set_loginInfo(res);
-      api.closeWin();
+  glo.post('/api/user/appThirdLogin', data, function(res) {
+    if(res.Code==1){
+      $api.setStorage('is_agent', res.data.is_agent);
+      $api.setStorage('token', res.data.token);
+      api.execScript({
+          name: 'root',
+          frameName: 'salelist_salelist',
+          script: 'reload()'
+      });
+      if(res.data.is_agent) {
+        api.closeWin();
+      } else {
+        glo.open_frame(api.pageParam.from);
+      }
     } else {
-      glo.echo(res.msg);
+      alert('登录失败');
     }
   });
 }
