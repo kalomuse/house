@@ -30,8 +30,8 @@
      <param name="ios_api_key" value="ym3h8LCRx2fWRlfftAoQpbaIw2FEM6T3" />
    </feature>
    <feature name="wx">
-    <param name="urlScheme" value="wx8519b390e429f7f8"/>
-    <param name="apiKey" value="wx8519b390e429f7f8"/>
-    <param name="apiSecret" value="18696a02a9f4808ee76c36450d6bbef3"/>
+    <param name="urlScheme" value="wx70a74e2fe0f7c4f1"/>
+    <param name="apiKey" value="wx70a74e2fe0f7c4f1"/>
+    <param name="apiSecret" value="434b354090c2097d2b36a0440138b13c"/>
   </feature>
 </widget>
