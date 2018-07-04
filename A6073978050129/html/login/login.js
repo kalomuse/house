@@ -160,18 +160,17 @@ function getUserInfo(accessToken,openId) {
       'unionid': res.unionid,
     }
     //注册
-    glo.echo(data);
-    ///third_login(data);
+    third_login(data);
   });
 }
 
 function third_login(data) {
-  glo.post('/mobile/login/third_login', data, function(res) {
-    if(res.status == 1) {
-      glo.set_loginInfo(res);
-      api.closeWin();
+  glo.post('/mobile/login/appThirdLogin', data, function(res) {
+    if(res.Code==1){
+      $api.setStorage('is_agent', res.data.is_agent);
+      $api.setStorage('token', res.data.token);
     } else {
-      glo.echo(res.msg);
+      alert('登录失败');
     }
   });
 }
