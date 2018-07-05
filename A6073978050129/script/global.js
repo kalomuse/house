@@ -5,6 +5,9 @@ var glo = {
   init: function(data) {
     this.fix_header('#header');
     token = $api.getStorage('token');
+    glo.reload(function() {
+      location.reload();
+    });
 
   },
   fix_header: function(name) {
