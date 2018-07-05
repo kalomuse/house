@@ -68,12 +68,15 @@ apiready = function() {
     var page = vue.page+1;
     glo.post('/api/house/getHouses', {page: page,regionid: regionid,keyword:$api.getStorage('keyword')}, function (res) {
       if(res.Code){
-        var news_list = vue.houselist;
+        glo.alert('玩命加载中...');
+        var house_list = vue.houselist;
         for (var i = 0; i < res.data.length; i++) {
           house_list.push(res.data[i]);
         }
         vue.houselist = house_list;
         vue.page = page+1
+      } else {
+        glo.alert('加载完毕');
       }
     });
   })

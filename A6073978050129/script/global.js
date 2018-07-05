@@ -172,20 +172,12 @@ var glo = {
     });
   },
   scrolltobottom: function(callback){
-    var callback2 = function() {
-      api.toast({
-          msg : '玩命加载中',
-          duration : 2000,
-          location : 'bottom'
-      });
-      callback();
-    }
     api.addEventListener({
       name:'scrolltobottom',
       extra:{
          threshold:0     //设置距离底部多少距离时触发，默认值为0，数字类型
        }
-     }, callback2
+     }, callback
    );
   },
   show_progress: function(str) {

@@ -50,9 +50,9 @@ apiready = function() {
   vue.token = $api.getStorage('token');
   //获取经纪人列表
   if ($api.getStorage('regionid') && $api.getStorage('region') != 'undefined') {
-    var regionid =  $api.getStorage('regionid');
+    regionid =  $api.getStorage('regionid');
   } else {
-    var regionid =  330421;
+    regionid =  330421;
   }
   glo.post('/api/agent/getAgent', { regionid: regionid }, function (res) {
       vue.agentlist = res.data;
@@ -71,13 +71,16 @@ apiready = function() {
   glo.scrolltobottom(function() {
     // 页数+1
     var page = vue.page+1;
-    glo.post('/api/agent/getAgent', {page: page}, function (res) {
+    glo.post('/api/agent/getAgent', { regionid: regionid,page: page}, function (res) {
       if(res.Code){
-          var agent_list = vue.agentlist;
-          for (var i = 0; i < res.data.length; i++) {
-            agent_list.push(res.data[i]);
-          }
-          vue.page =  page + 1;
+        glo.alert('玩命加载中...');
+        var agent_list = vue.agentlist;
+        for (var i = 0; i < res.data.length; i++) {
+          agent_list.push(res.data[i]);
+        }
+        vue.page =  page + 1;
+      } else {
+        glo.alert('加载完毕');
       }
     });
   })

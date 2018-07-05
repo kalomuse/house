@@ -7,6 +7,7 @@ var vue = new Vue({
     houseinfo:{},
     housetype:{},
     newlist:[],
+    page:1
   },
   methods:{
     //资讯详情事件处理函数
@@ -45,12 +46,15 @@ apiready = function() {
     var page = vue.page+1;
     glo.post('/api/news/getNews', {page: page}, function (res) {
       if(res.Code){
+        glo.alert('玩命加载中...');
         var news_list = vue.newlist;
         for (var i = 0; i < res.data.length; i++) {
           news_list.push(res.data[i]);
         }
         vue.newlist = news_list;
         vue.page = page+1
+      } else {
+          glo.alert('加载完毕');
       }
     });
   })
